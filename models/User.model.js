@@ -5,21 +5,37 @@ const userSchema = new Schema(
   {
     username: {
       type: String,
-      required: false,
-      unique: true,
-      trim: true,
+      required: true,
+      unique: true
     },
     email: {
       type: String,
-      required: true,
+      required: [true, "Email is required"],
+      match: [/^\S+@\S+\.\S+$/, 'Please use a valid email address.'],
       unique: true,
-      trim: true,
       lowercase: true,
+      trim: true
     },
     password: {
       type: String,
+      required: [true, "Password required"]
+    },
+    age: {
+      type: Number,
       required: true,
     },
+    level: {
+      enum: ["Beginner", "Intermediate", "Advanced", "Pro",],
+      required: true,
+    },
+    goal: {
+      enum: ["Lose Weight", "Build Muscle", "Be Active"],
+      required: true,
+    }
+  },
+  {
+    // this second object adds extra properties: `createdAt` and `updatedAt`    
+    timestamps: true
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
