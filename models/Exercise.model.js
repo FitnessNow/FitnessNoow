@@ -4,12 +4,12 @@ const {mongoose,Schema, model } = require("mongoose");
 const exerciseSchema = new Schema(
   {
     category: {
-      type: mongoose.Schema.Types.level,
-      ref: "User"
+      type: String,
+      
     },
     objective: {
-      type: mongoose.Schema.Types.goal,
-      ref: "User"
+      type: String,
+      
     }
   },
   {

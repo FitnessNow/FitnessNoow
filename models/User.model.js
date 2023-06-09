@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+const { mongoose, Schema, model } = require("mongoose");
 
 // TODO: Please make sure you edit the User model to whatever makes sense in this case
 const userSchema = new Schema(
@@ -18,17 +18,21 @@ const userSchema = new Schema(
     },
     password: {
       type: String,
-      required: [true, "Password required"]
+      required: true
     },
     age: {
       type: Number,
       required: true,
     },
     level: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Exercise",
       enum: ["Beginner", "Intermediate", "Advanced", "Pro",],
       required: true,
     },
     goal: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Exercise",
       enum: ["Lose Weight", "Build Muscle", "Be Active"],
       required: true,
     }
@@ -36,10 +40,6 @@ const userSchema = new Schema(
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`    
     timestamps: true
-  },
-  {
-    // this second object adds extra properties: `createdAt` and `updatedAt`
-    timestamps: true,
   }
 );
 
