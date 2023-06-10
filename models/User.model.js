@@ -20,27 +20,7 @@ const userSchema = new Schema(
       type: String,
       required: true
     },
-    age: {
-      type: Number,
-      required: true,
-    },
-    level: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Exercise",
-      enum: ["Beginner", "Intermediate", "Advanced", "Pro",],
-      required: true,
-    },
-    goal: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Exercise",
-      enum: ["Lose Weight", "Build Muscle", "Be Active"],
-      required: true,
-    }
   },
-  {
-    // this second object adds extra properties: `createdAt` and `updatedAt`    
-    timestamps: true
-  }
 );
 
 const User = model("User", userSchema);
