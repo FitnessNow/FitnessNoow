@@ -1,0 +1,10 @@
+
+<section>
+    <ul>
+        {{#each expenses}}
+            <li>{{category}}: {{amount}}</li>
+            <a href="/expense/{{this._id}}/edit">Edit</a>
+            <a href="/expense/{{this._id}}/delete">Delete</a>
+        {{/each}}
+    </ul>
+</section>
