@@ -9,7 +9,7 @@ const Expense = require('../models/Expense.model');
 router.get("/expense", (req, res, next) => {
     
     Expense.find()
-            .then((expenses) => {
+            .then(expenses => {
                 res.render("expense/expense-user", { expenses } )
             })
             .catch((e) => {
@@ -21,8 +21,8 @@ router.get("/expense", (req, res, next) => {
 router.get("/expense/create", (req, res, next) => {
 
     Expense.find() 
-           .then((createExp) => {
-                res.render("expense/create-expense", { createExp })
+           .then(createExp => {
+                res.render("expense/create-expense")
             
           })
           .catch((e) => {
@@ -36,10 +36,10 @@ router.post("/expense/create", (req, res, next) => {
         date: req.body.date,
         category: req.body.category,
         amount: req.body.amount
-    }
+    };
 
     Expense.create(newExpense)
-           .then((newExp) => {
+           .then(newExp => {
             res.redirect("/expense")
            })
            .catch((e) => {
@@ -52,20 +52,20 @@ router.get("/expense/:id/edit", (req, res, next) => {
     const { id } = req.params;
 
     const updatedExp = {
-        date: req.body.date,
+        date: req.body.date,    
         category: req.body.category,
         amount: req.body.amount
     }
 
     Expense.findById(id)
-           .then((expenseEdit) => {
+           .then(expenseEdit => {
                 res.render("expense/edit-expense", {expenseEdit})
            })
            .catch((e) => {
             console.log("error to edit expense", e)
             next(e)
-           })
-})
+           });
+});
 
 router.post("/expense/:id/edit", (req, res, next) => {
     const { id } = req.params;
@@ -77,7 +77,7 @@ router.post("/expense/:id/edit", (req, res, next) => {
     }
 
     Expense.findByIdAndUpdate(id, updatedExp)
-            .then((editedExp) => {
+            .then(editExp => {
                 res.redirect("/expense")
             })
             .catch((e) => {
@@ -94,8 +94,8 @@ router.get("/expense/:id/delete", (req, res, next) => {
             .catch((e) => {
                 console.log("error to delete expense", e)
                 next(e)
-               })
-})
+               });
+});
 
 
 

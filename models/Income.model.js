@@ -4,12 +4,13 @@ const {mongoose,Schema, model } = require("mongoose");
 const incomeSchema = new Schema(
   {
     date: {
-      type: Date
+      type: Date,
+      required: true
     },
     category: {
       type: String,
-      required: true,
-      enum: ["Salary", "Investment", "Rental", "Gift", "Pension"],
+      // required: true,
+      // enum: ["Salary", "Investment", "Rental", "Gift", "Pension"],
     },
     amount: {
       type: Number,

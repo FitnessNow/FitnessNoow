@@ -1,0 +1,10 @@
+<section>
+    <ul>
+        {{#each income}}
+            <li> {{date}} </li>
+            <li>{{category}}: {{amount}}</li>
+            <a href="/income/{{this._id}}/edit">Edit</a>
+            <a href="/income/{{this._id}}/delete">Delete</a>
+        {{/each}}
+    </ul>
+</section>

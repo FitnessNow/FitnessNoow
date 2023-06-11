@@ -1,7 +1,7 @@
-
 <section>
     <ul>
         {{#each expenses}}
+            <li> {{date}} </li>
             <li>{{category}}: {{amount}}</li>
             <a href="/expense/{{this._id}}/edit">Edit</a>
             <a href="/expense/{{this._id}}/delete">Delete</a>

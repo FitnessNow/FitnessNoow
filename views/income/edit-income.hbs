@@ -1,0 +1,18 @@
+<h1>Edit your income</h1>
+
+
+<section>
+    <form action="/income/{{incomeEdit._id}}/edit" method="post">
+        <label>Date:
+            <input type="date" name="date" value="{{incomeEdit.date}}">
+        </label>
+
+        <label>Category:
+            <input type="text" name="category" value="{{incomeEdit.category}}">
+        </label>
+        <label>Amount:
+            <input type="number" name="amount" value="{{incomeEdit.amount}}">
+        </label>
+        <button type="submit">Update</button>
+    </form>
+</section>
