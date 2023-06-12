@@ -1,4 +1,4 @@
-body {
+/* body {
   padding: 0;
   margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -17,8 +17,70 @@ a {
 
 h1 {
   color: 15px;
+
 }
 
 .collapse {
   width: 500 !important;
+} */
+/* .welcome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  flex-direction: column;
+  overflow: hidden;
+  animation-name: welcome;
+  animation-duration: 3s;  
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+}
+@keyframes welcome {
+  from {top: 0px;}
+  to {top: 200px; background-color: #6985C0 ;}
+}
+.welcome-text {
+  font-size: 50px;
+  animation-name: welcome-text;
+  animation-duration: 3s;  
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+}
+@keyframes welcome-text {
+  from {top: 0px;}
+  to {top: 200px; background-color: #6985C0 ;}
+}
+
+.welcome-subtext {
+  font-size: 40px;
+  animation-name: welcome-subtext;
+  animation-duration: 3s;  
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+}
+@keyframes welcome-subtext {
+  from {top: 0px;}
+  to {top: 200px; background-color: #6985C0 ;}
+} */
+.waviy {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  
+}
+.waviy span {
+  position: relative;
+  display: inline-block;
+  font-size: 60px;
+  color: #000000;
+  text-transform: uppercase;
+  animation: flip 2s infinite;
+  animation-delay: calc(.2s * var(--i))
+}
+@keyframes flip {
+  0%,80% {
+    transform: rotateY(360deg) 
+  }
 }
