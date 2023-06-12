@@ -128,13 +128,9 @@ router.post("/login", isLoggedOut, (req, res, next) => {
               .render("auth/login", { errorMessage: "Wrong credentials." });
             return;
           }
-
-          // // Add the user object to the session object
-          // req.session.currentUser = user.toObject();
-          // // Remove the password field
-          // delete req.session.currentUser.password;
-          req.session.currentUser = user
           
+          req.session.currentUser = user
+
           res.redirect("/");
         })
         .catch((err) => next(err)); // In this case, we send error handling to the error handling middleware.
