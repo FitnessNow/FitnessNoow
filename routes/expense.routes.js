@@ -4,9 +4,8 @@ const isLoggedIn = require('../middleware/isLoggedIn');
 const isLoggedOut = require('../middleware/isLoggedOut');
 
 const Balance = require('../models/Balance.model');
+const Income = require('../models/Income.model');
 const Expense = require('../models/Expense.model');
-const Expense = require('../models/Expense.model');
-
 
 router.get("/expense", isLoggedIn, (req, res, next) => {
     
@@ -17,16 +16,15 @@ router.get("/expense", isLoggedIn, (req, res, next) => {
             .catch((e) => {
                 console.log("failed to display expenses", e)
                 next(e)
-            })
-})
+            });
+});
 
 router.get("/expense/create", isLoggedIn, (req, res, next) => {
 
     Expense.find() 
            .then(createExp => {
                 res.render("expense/create-expense")
-            
-          })
+            })
           .catch((e) => {
                console.log("failed to create expense", e);
                 next(e)
