@@ -10,11 +10,20 @@ const { calculateBalance } = require('../balance/balance');
 
 
 router.get("/expense", isLoggedIn, (req, res, next) => {
+    let amount = req.query.amount;
+    amount = Number(amount);
+    
+    let filter = {}
+
+    if(amount) {
+        filter = {amount: {$lte: amount}}
+    }
+    
     calculateBalance()
         .then((balance) => {
-            Expense.find()
+            Expense.find(filter)
                 .then(expenses => {
-                    res.render("expense/expense-user", { expenses, balance });
+                    res.render("expense/expense-user", { expenses, balance, filter });
                 })
                 .catch((e) => {
                     console.log("failed to display expenses", e);
@@ -119,5 +128,17 @@ router.get("/expense/:id/delete", isLoggedIn, (req, res, next) => {
                });
 });
 
+
+router.get("/expense/:expName", (req, res, next) => {
+    
+    Expense.findOne({category: req.params.expName})
+            .then((filter) => {
+                res.render("/expense", filter)
+            })
+            .catch((err) => {
+                console.log("error to filter expense", e)
+                next(e)
+            });
+})
 
 module.exports = router;

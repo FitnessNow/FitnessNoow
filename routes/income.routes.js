@@ -10,12 +10,22 @@ const { calculateBalance } = require('../balance/balance');
 
 
 router.get("/income", isLoggedIn, (req, res, next) => {
+    
+    let amount = req.query.amount;
+    amount = Number(amount);
+    
+    let filter = {}
+
+    if(amount) {
+        filter = {amount: {$lte: amount}}
+    }
+    
     Promise.all([
-        Income.find(),
+        Income.find(filter),
         calculateBalance()
     ])
     .then(([income, balance]) => {
-        res.render("income/income-user", { income, balance });
+        res.render("income/income-user", { income, balance, filter });
     })
     .catch((e) => {
         console.log("failed to display income", e);

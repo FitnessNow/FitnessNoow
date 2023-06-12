@@ -1,14 +1,25 @@
 <section>
-    <h2>Welcome {{}} </h2>
+    <form action="/income" method="get">
+        <label> Amount
+            <input type="Number" name="amount" placeholder="Filter by Amount">
+        </label>
+        <button>Search</button>
+    </form>
 
+<hr/>
     <ul>
         {{#each income}}
             <li> {{date}} </li>
-            <li>{{category}}: {{amount}}</li>
+            <li>{{category}}: € {{amount}}</li>
             <a href="/income/{{this._id}}/edit" class="a-edit-inc">Edit</a>
             <a href="/income/{{this._id}}/delete" class="a-delete-inc">Delete</a>
+            <br><br>
         {{/each}}
     </ul>
 
-    <h3>Your balance : {{balance}} </h3>
+    <h3>Your balance : € {{balance}} </h3>
+
+
+
+
 </section>

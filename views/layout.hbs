@@ -26,7 +26,7 @@
                 Expense
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="/expense">List of Expenses</a></li>
+                <li><a class="dropdown-item" href="/expense">Expenses List</a></li>
                 <li><a class="dropdown-item" href="/expense/create">Create Expense</a></li>
                 {{!-- <li><a class="dropdown-item" href="/expense/{{this._id}}/edit">Edit</a></li>
                 <li><a class="dropdown-item" href="/expense/{{this._id}}/delete">Delete</a></li> --}}
@@ -38,7 +38,7 @@
                 Income
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="/income">List of Expenses</a></li>
+                <li><a class="dropdown-item" href="/income">Income List</a></li>
                 <li><a class="dropdown-item" href="/income/create">Create Income</a></li>
                 {{!-- <li><a class="dropdown-item" href="/income/{{this._id}}/edit">Edit</a></li>
                 <li><a class="dropdown-item" href="/income/{{this._id}}/delete">Delete</a></li> --}}
@@ -48,11 +48,7 @@
               <a class="nav-link active" aria-current="page" href="/balance">Balance</a>
             </li>
           </ul>
-          <form class="d-flex mx-5 my-2" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success bg-warning bg-gradient text-black" type="submit" style="border-color: black;">Search</button>
-          </form>
-
+          
           <a href="/auth/signup" style="padding-right: 10px;">Sign Up</a>
           <a href="/auth/login" style="padding-right: 10px;">Login</a>
           <a href="/auth/logout" style="padding-right: 10px;">Log Out</a>
