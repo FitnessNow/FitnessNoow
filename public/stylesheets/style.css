@@ -1,12 +1,24 @@
 body {
-  padding: 50px;
+  padding: 0;
+  margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00b7ff;
+  color: black;
+  right: 10px;
+  top: 5px;
+  text-decoration: none;
+}
+
+.a-edit-exp, .a-delete-exp, .a-edit-inc, .a-delete-inc {
+  color: blue;
 }
 
 h1 {
   color: 15px;
+}
+
+.collapse {
+  width: 500 !important;
 }

@@ -3,7 +3,8 @@ const router = express.Router();
 
 /* GET home page */
 router.get("/", (req, res, next) => {
-  res.render("index");
+  const userDetails = req.session.currentUser;
+  res.render("index", {userDetails});
 });
 
 module.exports = router;

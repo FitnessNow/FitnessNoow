@@ -5,25 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>{{appTitle}}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
 
   <body>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/expense">Expense</a>
-      <a href="/expense/create">Create Expense</a>
-      <a href="/income">Income</a>
-      <a href="/income/create">Create Income</a>
-      <a href="/balance">Balance</a>
-      <a href="/auth/signup">Sign Up</a>
-      <a href="/auth/login">Login</a>
-      <a href="/auth/logout">Log Out</a>
+    <nav class="navbar navbar-expand-lg mt-0 bg-warning bg-gradient">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">LOGO</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 fs-5 text">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-black" href="/expense" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Expense
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/expense">List of Expenses</a></li>
+                <li><a class="dropdown-item" href="/expense/create">Create Expense</a></li>
+                {{!-- <li><a class="dropdown-item" href="/expense/{{this._id}}/edit">Edit</a></li>
+                <li><a class="dropdown-item" href="/expense/{{this._id}}/delete">Delete</a></li> --}}
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-black" href="/income" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Income
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/income">List of Expenses</a></li>
+                <li><a class="dropdown-item" href="/income/create">Create Income</a></li>
+                {{!-- <li><a class="dropdown-item" href="/income/{{this._id}}/edit">Edit</a></li>
+                <li><a class="dropdown-item" href="/income/{{this._id}}/delete">Delete</a></li> --}}
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/balance">Balance</a>
+            </li>
+          </ul>
+          <form class="d-flex mx-5 my-2" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success bg-warning bg-gradient text-black" type="submit" style="border-color: black;">Search</button>
+          </form>
+
+          <a href="/auth/signup" style="padding-right: 10px;">Sign Up</a>
+          <a href="/auth/login" style="padding-right: 10px;">Login</a>
+          <a href="/auth/logout" style="padding-right: 10px;">Log Out</a>
+        </div>
+      </div>
     </nav>
 
     {{{body}}}
 
     <script src="/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
   </body>
 
 </html>

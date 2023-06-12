@@ -1,10 +1,12 @@
 <section>
+    <h2>Welcome {{}} </h2>
+
     <ul>
         {{#each income}}
             <li> {{date}} </li>
             <li>{{category}}: {{amount}}</li>
-            <a href="/income/{{this._id}}/edit">Edit</a>
-            <a href="/income/{{this._id}}/delete">Delete</a>
+            <a href="/income/{{this._id}}/edit" class="a-edit-inc">Edit</a>
+            <a href="/income/{{this._id}}/delete" class="a-delete-inc">Delete</a>
         {{/each}}
     </ul>
 
