@@ -6,19 +6,37 @@ const isLoggedOut = require('../middleware/isLoggedOut');
 const Balance = require('../models/Balance.model');
 const Income = require('../models/Income.model');
 const Expense = require('../models/Expense.model');
+const { calculateBalance } = require('../balance/balance');
 
 
 router.get("/income", isLoggedIn, (req, res, next) => {
-    
-    Income.find()
-            .then(income => {
-                res.render("income/income-user", { income });
-            })
-            .catch((e) => {
-                console.log("failed to display income", e)
-                next(e)
-            });
+    Promise.all([
+        Income.find(),
+        calculateBalance()
+    ])
+    .then(([income, balance]) => {
+        res.render("income/income-user", { income, balance });
+    })
+    .catch((e) => {
+        console.log("failed to display income", e);
+        next(e);
+    });
 });
+
+
+
+
+// router.get("/income", isLoggedIn, (req, res, next) => {
+    
+//     Income.find()
+//             .then(income => {
+//                 res.render("income/income-user", { income });
+//             })
+//             .catch((e) => {
+//                 console.log("failed to display income", e)
+//                 next(e)
+//             });
+// });
 
 router.get("/income/create", isLoggedIn, (req, res, next) => {
 
