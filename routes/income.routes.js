@@ -3,10 +3,12 @@ const router = express.Router();
 const isLoggedIn = require('../middleware/isLoggedIn');
 const isLoggedOut = require('../middleware/isLoggedOut');
 
+const Balance = require('../models/Balance.model');
 const Income = require('../models/Income.model');
+const Expense = require('../models/Expense.model');
 
 
-router.get("/income", (req, res, next) => {
+router.get("/income", isLoggedIn, (req, res, next) => {
     
     Income.find()
             .then(income => {
@@ -18,7 +20,7 @@ router.get("/income", (req, res, next) => {
             });
 });
 
-router.get("/income/create", (req, res, next) => {
+router.get("/income/create", isLoggedIn, (req, res, next) => {
 
     Income.find()
             .then(createInc => {
@@ -30,7 +32,7 @@ router.get("/income/create", (req, res, next) => {
             });
 });
 
-router.post("/income/create", (req, res, next) => {
+router.post("/income/create", isLoggedIn, (req, res, next) => {
     const newIncome = {
         date: req.body.date,
         category: req.body.category,
@@ -48,7 +50,7 @@ router.post("/income/create", (req, res, next) => {
 });
 
 
-router.get("/income/:id/edit", (req, res, next) => {
+router.get("/income/:id/edit", isLoggedIn, (req, res, next) => {
     const { id } = req.params;
 
     const updatedInc = {
@@ -67,7 +69,7 @@ router.get("/income/:id/edit", (req, res, next) => {
         });
 });
 
-router.post("/income/:id/edit", (req, res, next) => {
+router.post("/income/:id/edit", isLoggedIn, (req, res, next) => {
     const { id } = req.params;
 
     const updatedInc = {
@@ -86,7 +88,7 @@ router.post("/income/:id/edit", (req, res, next) => {
         });
 });
 
-router.get("/income/:id/delete", (req, res, next) => {
+router.get("/income/:id/delete", isLoggedIn, (req, res, next) => {
     const { id } = req.params;
 
     Income.findByIdAndDelete(id)

@@ -3,10 +3,12 @@ const router = express.Router();
 const isLoggedIn = require('../middleware/isLoggedIn');
 const isLoggedOut = require('../middleware/isLoggedOut');
 
+const Balance = require('../models/Balance.model');
+const Expense = require('../models/Expense.model');
 const Expense = require('../models/Expense.model');
 
 
-router.get("/expense", (req, res, next) => {
+router.get("/expense", isLoggedIn, (req, res, next) => {
     
     Expense.find()
             .then(expenses => {
@@ -18,7 +20,7 @@ router.get("/expense", (req, res, next) => {
             })
 })
 
-router.get("/expense/create", (req, res, next) => {
+router.get("/expense/create", isLoggedIn, (req, res, next) => {
 
     Expense.find() 
            .then(createExp => {
@@ -31,7 +33,7 @@ router.get("/expense/create", (req, res, next) => {
            }); 
 })
 
-router.post("/expense/create", (req, res, next) => {
+router.post("/expense/create", isLoggedIn, (req, res, next) => {
     const newExpense = {
         date: req.body.date,
         category: req.body.category,
@@ -48,7 +50,7 @@ router.post("/expense/create", (req, res, next) => {
        });
 })
 
-router.get("/expense/:id/edit", (req, res, next) => {
+router.get("/expense/:id/edit", isLoggedIn, (req, res, next) => {
     const { id } = req.params;
 
     const updatedExp = {
@@ -67,7 +69,7 @@ router.get("/expense/:id/edit", (req, res, next) => {
            });
 });
 
-router.post("/expense/:id/edit", (req, res, next) => {
+router.post("/expense/:id/edit", isLoggedIn, (req, res, next) => {
     const { id } = req.params;
 
     const updatedExp = {
@@ -86,7 +88,7 @@ router.post("/expense/:id/edit", (req, res, next) => {
                })
 })
 
-router.get("/expense/:id/delete", (req, res, next) => {
+router.get("/expense/:id/delete", isLoggedIn, (req, res, next) => {
     const { id } = req.params;
 
     Expense.findByIdAndDelete(id)
@@ -96,8 +98,6 @@ router.get("/expense/:id/delete", (req, res, next) => {
                 next(e)
                });
 });
-
-
 
 
 module.exports = router;
