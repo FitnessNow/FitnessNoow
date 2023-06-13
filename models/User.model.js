@@ -20,6 +20,14 @@ const userSchema = new Schema(
       type: String,
       required: true
     },
+    income: {
+      type: Number,
+      default: 0
+    },
+    expense: {
+      type: Number,
+      dafault: 0
+    }
   },
 );
 
