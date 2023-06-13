@@ -9,7 +9,7 @@
 <hr/>
     <ul>
         {{#each income}}
-            <li> {{date}} </li>
+            <li> {{dateFormat date "dddd, MMMM YYYY"}} </li>
             <li>{{category}}: € {{amount}}</li>
             <a href="/income/{{this._id}}/edit" class="a-edit-inc">Edit</a>
             <a href="/income/{{this._id}}/delete" class="a-delete-inc">Delete</a>

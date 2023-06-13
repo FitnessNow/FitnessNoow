@@ -3,7 +3,6 @@ const router = express.Router();
 const isLoggedIn = require('../middleware/isLoggedIn');
 const isLoggedOut = require('../middleware/isLoggedOut');
 
-const Balance = require('../models/Balance.model');
 const Income = require('../models/Income.model');
 const Expense = require('../models/Expense.model');
 const { calculateBalance } = require('../balance/balance');
@@ -12,12 +11,17 @@ const { calculateBalance } = require('../balance/balance');
 router.get("/expense", isLoggedIn, (req, res, next) => {
     let amount = req.query.amount;
     amount = Number(amount);
+
+    let owner = req.session.currentUser._id;
     
     let filter = {}
 
     if(amount) {
-        filter = {amount: {$lte: amount}}
+        filter = {$and: [{amount: amount}, {owner: owner}]}
+    } else if(owner) {
+        filter = {owner: owner}
     }
+
     
     calculateBalance()
         .then((balance) => {
@@ -37,19 +41,6 @@ router.get("/expense", isLoggedIn, (req, res, next) => {
 });
 
 
-
-// router.get("/expense", isLoggedIn, (req, res, next) => {
-    
-//     Expense.find()
-//             .then(expenses => {
-//                 res.render("expense/expense-user", { expenses } )
-//             })
-//             .catch((e) => {
-//                 console.log("failed to display expenses", e)
-//                 next(e)
-//             });
-// });
-
 router.get("/expense/create", isLoggedIn, (req, res, next) => {
 
     Expense.find() 
@@ -66,7 +57,8 @@ router.post("/expense/create", isLoggedIn, (req, res, next) => {
     const newExpense = {
         date: req.body.date,
         category: req.body.category,
-        amount: req.body.amount
+        amount: req.body.amount,
+        owner: req.session.currentUser._id
     };
 
     Expense.create(newExpense)
