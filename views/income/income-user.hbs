@@ -8,16 +8,16 @@
     <h3>Income</h3>
 <hr/>
 
-    <ul>
+    <ul class="list-group list-group-flush">
         {{#each income}}
-            <li> {{dateFormat date "dddd, MMMM YYYY"}} </li>
-            <li>{{category}}: € {{amount}}</li>
-            <a href="/income/{{this._id}}/edit" class="a-edit-inc">Edit</a>
-            <a href="/income/{{this._id}}/delete" class="a-delete-inc">Delete</a>
+            <li class="list-group-item"> {{dateFormat date "dddd, MMMM YYYY"}} </li>
+            <li class="list-group-item">{{category}}: € {{amount}}</li>
+            <li class="list-group-item"><a href="/income/{{this._id}}/edit" class="a-edit-inc">Edit</a>
+            <a href="/income/{{this._id}}/delete" class="a-delete-inc">Delete</a></li>
             <br><br>
         {{/each}}
     </ul>
-
+<br><br><br>
     <h3>Your balance : € {{balance}} </h3>
 
 
