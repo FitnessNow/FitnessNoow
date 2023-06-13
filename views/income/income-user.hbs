@@ -1,14 +1,14 @@
-<section>
+<section class="container mt-4">
     <form action="/income" method="get">
         <label> Amount
             <input type="Number" name="amount" placeholder="Filter by Amount">
         </label>
         <button>Search</button>
     </form>
-    <h3>Income</h3>
+    <h3 class="text-center">Income</h3>
 <hr/>
 
-    <ul class="list-group list-group-flush">
+    {{!-- <ul class="list-group list-group-flush">
         {{#each income}}
             <li class="list-group-item"> {{dateFormat date "dddd, MMMM YYYY"}} </li>
             <li class="list-group-item">{{category}}: € {{amount}}</li>
@@ -16,7 +16,21 @@
             <a href="/income/{{this._id}}/delete" class="a-delete-inc">Delete</a></li>
             <br><br>
         {{/each}}
-    </ul>
+    </ul> --}}
+
+        <div class="card text-center">
+            {{#each income}}
+            <div class="card-header">
+                {{dateFormat date "dddd, MMMM YYYY"}}
+            </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{category}}</h5>
+                    <p class="card-text"> € {{amount}}</p>
+                    <a href="/income/{{this._id}}/edit" class="a-edit-inc">Edit</a>
+                    <a href="/income/{{this._id}}/delete" class="a-delete-inc">Delete</a>  
+                </div>
+            {{/each}}    
+        </div>
 <br><br><br>
     <h3>Your balance : € {{balance}} </h3>
 

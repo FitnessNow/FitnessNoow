@@ -1,6 +1,7 @@
 body {
   overflow-y: hidden;
   overflow-x: hidden;
+  background-color: lightgoldenrodyellow;
 }
 
 .navbar {
@@ -55,4 +56,11 @@ body {
 
 .a-edit-exp, .a-delete-exp, .a-edit-inc, .a-delete-inc {
   text-decoration: none;
+  background-color: black;
+  width: 40px;
+  border: 3px solid black;
+  border-radius: 6px;
+  color: white;
 }
+
+

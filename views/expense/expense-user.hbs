@@ -1,4 +1,4 @@
-<section>
+<section class="container mt-4">
 
         
 
@@ -9,10 +9,10 @@
         <button>Search</button>
     </form>
 
-    <h3>Expense</h3>
+    <h3 class="text-center">Expense</h3>
     <hr/>
 
-    <ul>
+    {{!-- <ul>
         {{#each expenses}}
             <li> {{dateFormat date "dddd, MMMM YYYY"}} </li>
             <li>{{category}}: € {{amount}}</li>
@@ -21,6 +21,23 @@
             <br><br>
         {{/each}}
     </ul>
+
+    <h3>Your balance : € {{balance}} </h3> --}}
+
+            <div class="card text-center">
+            {{#each expenses}}
+            <div class="card-header">
+                {{dateFormat date "dddd, MMMM YYYY"}}
+            </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{category}}</h5>
+                    <p class="card-text"> € {{amount}}</p>
+                    <a href="/expense/{{this._id}}/edit" class="a-edit-inc">Edit</a>
+                    <a href="/expense/{{this._id}}/delete" class="a-delete-inc">Delete</a>  
+                </div>
+            {{/each}}    
+        </div>
+<br><br><br>
 
     <h3>Your balance : € {{balance}} </h3>
 
