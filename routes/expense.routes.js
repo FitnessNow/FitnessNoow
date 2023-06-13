@@ -22,8 +22,8 @@ router.get("/expense", isLoggedIn, (req, res, next) => {
         filter = {owner: owner}
     }
 
-    
-    calculateBalance()
+
+    calculateBalance(req.session.currentUser._id)
         .then((balance) => {
             Expense.find(filter)
                 .then(expenses => {

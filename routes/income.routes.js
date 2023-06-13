@@ -25,7 +25,7 @@ router.get("/income", isLoggedIn, (req, res, next) => {
 
     Promise.all([
         Income.find(filter),
-        calculateBalance()
+        calculateBalance(req.session.currentUser._id)
     ])
     .then(([income, balance]) => {
         res.render("income/income-user", { income, balance, filter });
