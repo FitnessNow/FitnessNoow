@@ -1,7 +1,4 @@
 <section class="container mt-4">
-
-        
-
     <form action="/expense" method="get">
         <label> Amount
             <input type="Number" name="amount" placeholder="Filter by Amount">
@@ -11,34 +8,19 @@
 
     <h3 class="text-center">Expense</h3>
     <hr/>
-
-    {{!-- <ul>
-        {{#each expenses}}
-            <li> {{dateFormat date "dddd, MMMM YYYY"}} </li>
-            <li>{{category}}: € {{amount}}</li>
-            <a href="/expense/{{this._id}}/edit" class="a-edit-exp">Edit</a>
-            <a href="/expense/{{this._id}}/delete" class="a-delete-exp">Delete</a>
-            <br><br>
-        {{/each}}
-    </ul>
-
-    <h3>Your balance : € {{balance}} </h3> --}}
-
-            <div class="card text-center">
-            {{#each expenses}}
-            <div class="card-header">
-                {{dateFormat date "dddd, MMMM YYYY"}}
-            </div>
-                <div class="card-body">
-                    <h5 class="card-title">Type: {{category}}</h5>
-                    <p class="card-text"> € {{amount}}</p>
-                    <a href="/expense/{{this._id}}/edit" class="a-edit-inc">Edit</a>
-                    <a href="/expense/{{this._id}}/delete" class="a-delete-inc">Delete</a>  
-                </div>
-            {{/each}}    
+    <div class="card text-center">
+    {{#each expenses}}
+        <div class="card-header">
+            {{dateFormat date "dddd, MMMM YYYY"}}
         </div>
-<br><br><br>
-
+        <div class="card-body">
+            <h5 class="card-title">Type: {{category}}</h5>
+            <p class="card-text"> € {{amount}}</p>
+            <a href="/expense/{{this._id}}/edit" class="a-edit-inc">Edit</a>
+            <a href="/expense/{{this._id}}/delete" class="a-delete-inc">Delete</a>  
+        </div>
+    {{/each}}    
+    </div>
+    <br><br><br>
     <h3>Your balance : € {{balance}} </h3>
-
 </section>

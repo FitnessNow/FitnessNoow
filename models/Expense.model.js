@@ -11,6 +11,7 @@ const expenseSchema = new Schema(
       type: String,
       // required: [true, "Please use one of the following: Home & Utility, Transport, Medical, Child Care, Education, Entertainment, Dine Out"],
       // enum: ["Home & Utility", "Transport", "Medical", "Child Care", "Education", "Entertainment", "Dine Out"],
+      required: true
     },
     amount: {
       type: Number,
@@ -19,7 +20,7 @@ const expenseSchema = new Schema(
     owner: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
-      // required: true
+      required: true
     }
   },
   {

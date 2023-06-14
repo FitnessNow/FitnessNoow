@@ -82,7 +82,10 @@ router.get("/expense/:id/edit", isLoggedIn, (req, res, next) => {
 
     Expense.findById(id)
            .then(expenseEdit => {
-                res.render("expense/edit-expense", {expenseEdit})
+            // const formattedDate = expenseEdit.date.toLocaleDateString()
+            // console.log(formattedDate);
+
+            res.render("expense/edit-expense", { expenseEdit, formattedDate })
            })
            .catch((e) => {
             console.log("error to edit expense", e)

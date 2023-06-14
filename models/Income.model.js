@@ -5,12 +5,13 @@ const incomeSchema = new Schema(
   {
     date: {
       type: Date,
-      required: true
+      required: true,
     },
     category: {
       type: String,
       // required: true,
       // enum: ["Salary", "Investment", "Rental", "Gift", "Pension"],
+      required: true
     },
     amount: {
       type: Number,
@@ -19,7 +20,7 @@ const incomeSchema = new Schema(
     owner: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
-      // required: true
+      required: true
     }
   },
   {
