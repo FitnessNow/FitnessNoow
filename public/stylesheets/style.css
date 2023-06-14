@@ -3,9 +3,9 @@ body {
   overflow: hidden;
 }
 
-.navbar {
-  font-weight: bold;
-}
+/* .navbar {
+  /* font-weight: bold; */
+
 
 .waviy {
   position: relative;
@@ -33,6 +33,7 @@ body {
   padding-right: 10px; 
   text-decoration: none;
   color: black;
+  margin-right: 5px;
 }
 
 .home-page-title {
@@ -60,5 +61,20 @@ body {
   color: white;
 }
 
+.nav-link:hover {
 
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+.sign-up:hover, 
+.login:hover, 
+.logout:hover {
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding-left: 8px;
+  
+}
 
