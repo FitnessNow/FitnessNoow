@@ -83,12 +83,14 @@ router.get("/expense/:id/edit", isLoggedIn, (req, res, next) => {
     Expense.findById(id)
            .then(expenseEdit => {
 
-            const formattedDate = expenseEdit.date.toLocaleDateString()
+            // const formattedDate = expenseEdit.date.toLocaleDateString()
             
-            const dateParts = formattedDate.split('/');
-            const newFormattedDate = `${dateParts[2]}-${dateParts[1]}-${dateParts[0]}`;
+            // const dateParts = formattedDate.split('/');
+            // const newFormattedDate = `${dateParts[2]}-${dateParts[1]}-${dateParts[0]}`;
 
-            res.render("expense/edit-expense", { expenseEdit: { date: newFormattedDate, category: expenseEdit.category, amount: expenseEdit.amount } })
+            // : { date: newFormattedDate, category: expenseEdit.category, amount: expenseEdit.amount }
+
+            res.render("expense/edit-expense", { expenseEdit })
            })
            .catch((e) => {
             console.log("error to edit expense", e)
