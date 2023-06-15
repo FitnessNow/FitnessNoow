@@ -716,9 +716,11 @@ section .signup .content {
     text-align: center;
   }
   .hr-create {
-    width: 310px;
+    width: 315px;
     position: absolute;
-    left: 46px;
+    left: 53%;
+    top: 20%;
+    transform: translateX(-50%);
   }
 
 }
