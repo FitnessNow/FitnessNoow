@@ -749,7 +749,8 @@ section .signup .content {
 }
 
 .balance {
-  font-size: 30px;
+  font-size: 35px;
+  color: white;
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -991,7 +992,7 @@ div.transaction-container .amount {
   justify-content:center;
   text-align:center;
 }
-h1{
+.home-text{
   text-align:center;
   text-transform: uppercase;
   color: #333; 
@@ -1046,7 +1047,7 @@ h1{
     position: absolute;
   }
 
-  h1{
+  .home-text{
   text-align:center;
   text-transform: uppercase;
   color: #333; 
@@ -1093,8 +1094,8 @@ h1{
 .waviy span {
   position: relative;
   display: inline-block;
-  font-size: 40px;
-  color: #920e0e;
+  font-size: 31px;
+  color: #333;
   text-transform: uppercase;
   animation: flip 2s infinite;
   animation-delay: calc(.2s * var(--i))
