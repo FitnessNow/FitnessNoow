@@ -10,11 +10,11 @@ function removeNavBar() {
 
   if(window.innerWidth <= 770) {
     navBarElement.style.display = 'none';
-    hamburgerElement.style.display = 'block';
-    logoElement.hidden = false;
-  } else if(window.innerWidth > 771) {
+    hamburgerElement.style.display = 'flex';
+    logoElement.removeAttribute("hidden");
+  } else if(window.innerWidth >= 771) {
     navBarElement.style.display = 'flex';
-    hamburgerElement.hidden = false;
+    hamburgerElement.removeAttribute("hidden");
   }
 }
 
