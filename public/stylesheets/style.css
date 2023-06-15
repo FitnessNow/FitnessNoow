@@ -366,6 +366,7 @@ section .signin .content .form .inputBox i
   cursor: pointer;
   width: 400px;
   border-radius: 10px;
+  border: none;
 }
 button:active
 {
@@ -524,6 +525,7 @@ section .signup .content .form .inputBox i
   cursor: pointer;
   width: 400px;
   border-radius: 10px;
+  border: none;
 }
 button:active
 {
@@ -557,7 +559,7 @@ section .signup .content {
   width: 220px;
 }
  
- .inputBox {
+ .inputBox button {
   font-size: 16px;
  }
 }
@@ -974,3 +976,131 @@ div.transaction-container .amount {
   margin-top: -100px;
 }
 }
+
+
+/* This is the index css */
+/* This is the index css */
+
+.main{
+  height:100vh;
+  width:100%;  
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+h1{
+  text-align:center;
+  text-transform: uppercase;
+  color: #333; 
+  font-size: 4rem;
+}
+
+.roller{
+  height: 4.125rem;
+  line-height: 4rem;
+  position: relative;
+  overflow: hidden; 
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #1D3557;
+}
+
+
+#spare-time{
+  font-size: 1rem;
+  font-style: italic;
+  letter-spacing: 1rem;
+  margin-top: 0;
+  color: #333;
+}
+
+.roller #rolltext {
+  position: absolute;
+  top: 0;
+  animation: slide 5s infinite;
+  color: grey;
+}
+
+@keyframes slide {
+  0%{
+    top:0;
+  }
+  25%{
+    top: -4rem;    
+  }
+  50%{
+    top: -8rem;
+  }
+  72.5%{
+    top: -12.25rem;
+  }
+}
+
+@media (max-width: 770px){
+  .main {
+    position: absolute;
+  }
+
+  h1{
+  text-align:center;
+  text-transform: uppercase;
+  color: #333; 
+  font-size: 2.125rem;
+}
+  
+  .roller{
+  height: 2.6rem; 
+  line-height: 2.125rem;  
+  }
+  
+  #spare-time {
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+  }
+  
+  .roller #rolltext {  
+  animation: slide-mob 5s infinite;  
+}
+  
+  @keyframes slide-mob {
+  0%{
+    top:0;
+  }
+  25%{
+    top: -2.125rem;    
+  }
+  50%{
+    top: -4.25rem;
+  }
+  72.5%{
+    top: -6.375rem;
+  }
+}
+}
+
+.waviy {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  top: 40%;
+}
+.waviy span {
+  position: relative;
+  display: inline-block;
+  font-size: 40px;
+  color: #920e0e;
+  text-transform: uppercase;
+  animation: flip 2s infinite;
+  animation-delay: calc(.2s * var(--i))
+}
+@keyframes flip {
+  0%,80% {
+    transform: rotateY(360deg) 
+  }
+}
+
+

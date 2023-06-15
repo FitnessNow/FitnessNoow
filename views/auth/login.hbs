@@ -23,7 +23,11 @@
             <div class="links"> <a href="/auth/signup">Signup</a>
   
             </div>
-  
+            <div>
+            {{#if errorMessage}}
+              <p class="error" style="color: white;">{{errorMessage}}</p>
+            {{/if}}
+            </div>
             <div class="inputBox">
   
               <button type="submit"> Login</button>
@@ -33,10 +37,7 @@
           </div>
   
         </div>
-  
       </div>
-        {{#if errorMessage}}
-          <p class="error">{{errorMessage}}</p>
-        {{/if}}
     </form>
   </section> <!-- partial -->
+  

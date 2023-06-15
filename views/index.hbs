@@ -1,16 +1,6 @@
 {{!-- {{#if userDetails.username}}
- <div class="waviy">
-   <span style="--i:1">W</span>
-   <span style="--i:2">e</span>
-   <span style="--i:3">l</span>
-   <span style="--i:4">c</span>
-   <span style="--i:5">o</span>
-   <span style="--i:6">m</span>
-   <span style="--i:7">e</span>
-   <br><br>
-   <span style="--i:8; margin-left: 15px;">{{userDetails.username}}</span>
-  </div>
-{{else}}
+
+
 <h2 class="home-page-title">Take control of your finances</h2>
 <div id="carouselExample" class="carousel slide">
   <div class="carousel-inner">
@@ -34,3 +24,29 @@
   </button>
 </div>
 {{/if}} --}}
+
+
+
+  {{#if userDetails.username}}
+   <div class="waviy">
+   <span style="--i:1">W</span>
+   <span style="--i:2">e</span>
+   <span style="--i:3">l</span>
+   <span style="--i:4">c</span>
+   <span style="--i:5">o</span>
+   <span style="--i:6">m</span>
+   <span style="--i:7">e</span>
+   <br><br>
+   <span style="--i:8; margin-left: 15px;">{{userDetails.username}}</span>
+  </div>
+  {{else}}
+  <div class="main">
+    <h1>Budbudgeting is <div class="roller">
+      <span id="rolltext">Reliable<br/>
+      Easy to use<br/>
+      Made for you<br/>
+      <span id="spare-time">Join us</span><br/>
+      </div>
+    </h1>
+  </div>
+  {{/if}}
