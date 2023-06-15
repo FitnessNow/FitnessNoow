@@ -1,22 +1,16 @@
-<h1 class="text-center mt-5">Edit Your Income</h1>
 
-<section class="text-center mt-4" style="margin-left: 15%;">
-    <form action="/income/{{incomeEdit._id}}/edit" method="post">
-        <div class="form-group row mt-4" style="display: flex; flex-direction: column;">
-            <div class="col-sm-10">
-                <input type="date" class="form-control form-control-lg" id="colFormLabelLg" name="date" value="{{incomeEdit.date}}" required>
-            </div>
-        </div>
-        <div class="form-group row mt-4" style="display: flex; flex-direction: column;">
-            <div class="col-sm-10">
-                <input type="text" class="form-control form-control-lg" id="colFormLabelLg" name="category" value="{{incomeEdit.category}}" required>
-            </div>
-        </div>
-        <div class="form-group row mt-4" style="display: flex; flex-direction: column;">
-            <div class="col-sm-10">
-                <input type="number" class="form-control form-control-lg" id="colFormLabelLg" name="amount" value="{{incomeEdit.amount}}" required>
-            </div>
-        </div>
-        <button type="submit" class="btn btn-dark mt-5" style="display: flex; align-self: center;">Submit</button>
-    </form>
-</section>
+
+
+<h3 class="header-edit">Edit Your Income</h3>
+<hr>
+<div class="container-edit">
+  <form class="edit-form" action="/income/{{incomeEdit._id}}/edit" method="post">
+    <input class="input-edit" type="date" id="fname" name="date" value="{{incomeEdit.date}}" required>
+
+    <input class="input-edit" type="text" id="lname" name="category" value="{{incomeEdit.category}}" required>
+
+    <input class="input-edit" type="number" id="lname" name="amount" value="{{incomeEdit.amount}}" required>
+    
+    <button class="edit-button" type="submit">Update</button>
+  </form>
+</div>

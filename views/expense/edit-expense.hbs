@@ -1,4 +1,4 @@
-<h1 class="text-center mt-5">Edit Your Expense</h1>
+{{!-- <h1 class="text-center mt-5">Edit Your Expense</h1>
 
 <section class="text-center mt-4" style="margin-left: 15%;">
     <form action="/expense/{{expenseEdit._id}}/edit" method="post">
@@ -19,4 +19,19 @@
         </div>
         <button type="submit" class="btn btn-dark mt-5" style="display: flex; align-self: center;">Submit</button>
     </form>
-</section>
+</section> --}}
+
+
+<h3 class="header-edit">Edit Your Expense</h3>
+<hr>
+<div class="container-edit">
+  <form class="edit-form" action="/expense/{{expenseEdit._id}}/edit" method="post">
+    <input class="input-edit" type="date" id="fname" name="date" value="{{expenseEdit.date}}" required>
+
+    <input class="input-edit" type="text" id="lname" name="category" value="{{expenseEdit.category}}" required>
+
+    <input class="input-edit" type="number" id="lname" name="amount" value="{{expenseEdit.amount}}" required>
+    
+    <button class="edit-button" type="submit">Update</button>
+  </form>
+</div>
