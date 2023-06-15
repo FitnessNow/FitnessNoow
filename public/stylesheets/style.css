@@ -1,17 +1,17 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;   
+  /* font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;    */
 };
 
-#logo-div {
+#logo-div label {
   width: 120px;
-  margin-left: 10px;
-  margin-right: 100px;
   color: white;
   display: flex;
   flex-direction: row;
 }
+
+
 
 
 .navbar {
@@ -245,4 +245,318 @@ body {
 
 }
 
+/* <----- this is for the login css ------> */
 
+section 
+{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+section #login-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section .signin
+{
+  position: absolute;
+  width: 400px;
+  background: #222;  
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  border-radius: 4px;
+  box-shadow: 0 15px 35px rgba(0,0,0,9);
+}
+section .signin .content 
+{
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+}
+section .signin .content h2 
+{
+  font-size: 2em;
+  color: white;
+  text-transform: uppercase;
+}
+section .signin .content .form 
+{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+section .signin .content .form .inputBox
+{
+  position: relative;
+  width: 100%;
+}
+section .signin .content .form .inputBox input 
+{
+  position: relative;
+  width: 100%;
+  background: #333;
+  border: none;
+  outline: none;
+  padding: 25px 10px 7.5px;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1em;
+}
+section .signin .content .form .inputBox i 
+{
+  position: absolute;
+  left: 0;
+  padding: 15px 10px;
+  font-style: normal;
+  color: #aaa;
+  transition: 0.5s;
+  pointer-events: none;
+}
+.signin .content .form .inputBox input:focus ~ i,
+.signin .content .form .inputBox input:valid ~ i
+{
+  transform: translateY(-7.5px);
+  font-size: 0.8em;
+  color: #fff;
+}
+.signin .content .form .links 
+{
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.signin .content .form .links a 
+{
+  color: #fff;
+  text-decoration: none;
+}
+.signin .content .form .links a:nth-child(2)
+{
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+}
+.signin .content button
+{
+  padding: 10px;
+  background: rgb(24, 236, 255);
+  color: #000;
+  font-weight: 600;
+  font-size: 1.35em;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  width: 400px;
+  border-radius: 10px;
+}
+button:active
+{
+  opacity: 0.6;
+}
+
+@media (max-width: 770px)
+{
+ section{
+  width: 100%;
+  margin-left: 10px;
+  margin-right: 10px;
+  
+ }
+
+
+section .signin {
+  margin-bottom: 150px;
+  box-shadow: 0 5px 15px rgba(0,0,0,9);
+  width: 220px;
+  height: 380px;
+
+}
+
+section .signin .content {
+  width: 300px;
+  margin-bottom: 50px;
+}
+
+.signin .content button {
+  width: 220px;
+}
+ .inputBox {
+  font-size: 16px;
+ }
+}
+
+
+/* this is for the Sign Up CSS */
+
+section 
+{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+section #signup-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section .signup
+{
+  position: absolute;
+  width: 400px;
+  background: #222;  
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  border-radius: 4px;
+  box-shadow: 0 15px 35px rgba(0,0,0,9);
+}
+section .signup .content 
+{
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+}
+section .signup .content h2 
+{
+  font-size: 2em;
+  color: white;
+  text-transform: uppercase;
+}
+section .signup .content .form 
+{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+section .signup .content .form .inputBox
+{
+  position: relative;
+  width: 100%;
+}
+section .signup .content .form .inputBox input 
+{
+  position: relative;
+  width: 100%;
+  background: #333;
+  border: none;
+  outline: none;
+  padding: 25px 10px 7.5px;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1em;
+}
+section .signup .content .form .inputBox i 
+{
+  position: absolute;
+  left: 0;
+  padding: 15px 10px;
+  font-style: normal;
+  color: #aaa;
+  transition: 0.5s;
+  pointer-events: none;
+}
+.signup .content .form .inputBox input:focus ~ i,
+.signup .content .form .inputBox input:valid ~ i
+{
+  transform: translateY(-7.5px);
+  font-size: 0.8em;
+  color: #fff;
+}
+.signup .content .form .links 
+{
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.signup .content .form .links a 
+{
+  color: #fff;
+  text-decoration: none;
+}
+.signup .content .form .links a:nth-child(2)
+{
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+}
+.signup .content button
+{
+  padding: 10px;
+  background: rgb(24, 236, 255);
+  color: #000;
+  font-weight: 600;
+  font-size: 1.35em;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  width: 400px;
+  border-radius: 10px;
+}
+button:active
+{
+  opacity: 0.6;
+}
+
+@media (max-width: 770px)
+{
+ section{
+  width: 100%;
+  margin-left: 10px;
+  margin-right: 10px;
+  
+ }
+
+
+section .signup {
+  margin-bottom: 150px;
+  box-shadow: 0 5px 15px rgba(0,0,0,9);
+  width: 220px;
+  height: 380px;
+
+}
+
+section .signup .content {
+  width: 300px;
+  margin-bottom: 50px;
+}
+
+.signup .content button {
+  width: 220px;
+}
+ 
+ .inputBox {
+  font-size: 16px;
+ }
+}
