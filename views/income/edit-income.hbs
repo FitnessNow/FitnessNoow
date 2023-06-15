@@ -2,7 +2,7 @@
 
 
 <h3 class="header-edit">Edit Your Income</h3>
-<hr>
+<hr class="hr-edit">
 <div class="container-edit">
   <form class="edit-form" action="/income/{{incomeEdit._id}}/edit" method="post">
     <input class="input-edit" type="date" id="fname" name="date" value="{{incomeEdit.date}}" required>
@@ -11,6 +11,6 @@
 
     <input class="input-edit" type="number" id="lname" name="amount" value="{{incomeEdit.amount}}" required>
     
-    <button class="edit-button" type="submit">Update</button>
+    <button class="edit-button" type="submit">UPDATE</button>
   </form>
 </div>
