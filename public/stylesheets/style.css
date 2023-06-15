@@ -1,18 +1,24 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;   
+};
+
+#logo-div {
+  width: 120px;
+  margin-left: 10px;
+  margin-right: 100px;
+  color: white;
+  display: flex;
+  flex-direction: row;
 }
 
-#logo-div .logo {
-  width: 100px;
-  margin-left: 10px;
-}
 
 .navbar {
   overflow: hidden;
   background-color: #333;
   display: flex;
-  flex-direction: row;
+  align-items: center;
 }
 
 .navbar a {
@@ -86,13 +92,25 @@ body {
 {
   display: block;
   position: relative;
-  top: 50px;
-  left: 50px;
-  
+  top: 0;
+  left: 30px;
   z-index: 1;
-  
   -webkit-user-select: none;
   user-select: none;
+}
+
+#logo {
+  color: rgb(204, 14, 14);
+  font-size: 15px;
+  line-height: 80px;
+  font-weight: bold;
+  margin-left: -5px;
+}
+
+
+#menu ul li {
+  font-size: 15px;
+  list-style: none;
 }
 
 #menuToggle a
@@ -223,6 +241,8 @@ body {
 {
   transform: none;
 }
+
+
 }
 
 

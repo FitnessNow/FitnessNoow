@@ -3,23 +3,55 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log("fitness-nowt JS imported successfully!");
 });
 
-$(document).ready(function() {
-  var interval = 4000;
-  // carousel element
-  var carousel = $("#carouselExample");
-  
-  // Start the carousel
-  carousel.carousel();
-  
-  // function to automatically advance the carousel
-  function autoAdvanceCarousel() {
-    // Move to the next slide
-    carousel.carousel("next");
+function removeNavBar() {
+  const navBarElement = document.querySelector('.navbar');
+  const hamburgerElement = document.querySelector('.menuToggle');
+  const logoElement = document.querySelector('.logo-text');
 
-    // Call the function again after the specified interval
-    setTimeout(autoAdvanceCarousel, interval);
+  if(window.innerWidth <= 770) {
+    navBarElement.style.display = 'none';
+    hamburgerElement.style.display = 'block';
+    logoElement.hidden = false;
+  } else if(window.innerWidth > 771) {
+    navBarElement.style.display = 'flex';
+    hamburgerElement.hidden = false;
   }
+}
 
-  // Call the function to start the auto-advancing carousel
-  setTimeout(autoAdvanceCarousel, interval);
-});
+window.addEventListener('Loaded', removeNavBar);
+window.addEventListener('resize', removeNavBar);
+
+function displayListandCreateExpense() {
+  const expenseParent = document.querySelector('.expense');
+  const expenseChild = document.querySelector('.child-expense');
+  let isChildExpenseVisible = false;
+
+  expenseParent.addEventListener('click', () => {
+      if (isChildExpenseVisible) {
+        expenseChild.hidden = true;
+        isChildExpenseVisible = false;
+      } else {
+        expenseChild.hidden = false;
+        isChildExpenseVisible = true;
+      }
+    }
+)};
+
+function displayListandCreateIncome() {
+    const incomeParent = document.querySelector('.income');
+    const incomeChild = document.querySelector('.child-income');
+    let isChildIncomeVisible = false;
+  
+    incomeParent.addEventListener('click', () => {
+        if (isChildIncomeVisible) {
+          incomeChild.hidden = true;
+          isChildIncomeVisible = false;
+        } else {
+          incomeChild.hidden = false;
+          isChildIncomeVisible = true;
+        }
+      }
+)};
+
+displayListandCreateExpense();
+displayListandCreateIncome();

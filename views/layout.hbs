@@ -11,49 +11,9 @@
   </head>
 
   <body>
-    {{!-- <nav class="navbar navbar-expand-lg mt-0 bg-gradient" style="background-color: #ffcc00;">
-      <div class="container-fluid">
-        <img src="/images/logo-website.png" alt="logo-website" style="width: 120px; height: 60px; display: flex; align-self:center; margin-right: 80px; margin-left: 20px">
-        <div class="collapse navbar-collapse float-md-start" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 fs-5 text">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/">Home</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-black" href="/expense" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Expense
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="/expense">Expenses List</a></li>
-                <li><a class="dropdown-item" href="/expense/create">Create Expense</a></li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-black" href="/income" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Income
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="/income">Income List</a></li>
-                <li><a class="dropdown-item" href="/income/create">Create Income</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/balance">Balance</a>
-            </li>
-          </ul>
-          
-          <a href="/auth/signup" class="sign-up">Sign Up</a>
-          <a href="/auth/login" class="login">Login</a>
-          <a href="/auth/logout" class="logout">Log Out</a>
-        </div>
-      </div>
-    </nav> --}}
-
     <div class="navbar">
       <div id="logo-div">
-        <img src="/images/logo-website.png" alt="logo" class="logo">
+         <label>BUDBUDGETTING</label>
       </div>
       <a href="/">HOME</a>
       <div class="dropdown">
@@ -82,37 +42,35 @@
       </div>
     </div>
     
-<div id="menuToggle">
-    <!--
-    A fake / hidden checkbox is used as click reciever,
-    so you can use the :checked selector on it.
-    -->
+<div id="menuToggle" hidden>
+    <label id="logo">BUDBUDGETTING</label>
     <input type="checkbox" />
-    
-    <!--
-    Some spans to act as a hamburger.
-    
-    They are acting like a real hamburger,
-    not that McDonalds stuff.
-    -->
     <span></span>
     <span></span>
     <span></span>
-    
-    <!--
-    Too bad the menu has to be inside of the button
-    but hey, it's pure CSS magic.
-    -->
+
     <ul id="menu">
       <a href="#"><li>Home</li></a>
-      <a href="#"><li>About</li></a>
-      <a href="#"><li>Info</li></a>
-      <a href="#"><li>Contact</li></a>
-      <a href="https://erikterwan.com/" target="_blank"><li>Show me more</li></a>
+      <a href="#" class="expense"><li>Expense</li></a>
+      <ul class="child-expense" hidden>
+        <li>List Of Expense</li>
+        <li>Create Expense</li>
+      </ul>
+      <a href="#" class="income"><li>Income</li></a>
+      <ul class="child-income" hidden>
+        <li>List Of Income</li>
+        <li>Create Expense</li>
+      </ul>
+      <a href="#"><li>Balance</li></a>
+      <a href="">Sign Up</a>
+      <a href="">Login</a>
+      <a href="">Logout</a>
     </ul>
-  </div>
+</div>
+  
     {{{body}}}
 
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="/js/script.js"></script>
   </body>
 
