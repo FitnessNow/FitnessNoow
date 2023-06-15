@@ -89,7 +89,7 @@ router.get("/income/:id/edit", isLoggedIn, (req, res, next) => {
             res.render("income/edit-income", { incomeEdit })
         })
         .catch((e) => {
-            console.log("error to edit expense", e)
+            console.log("error to edit income", e)
             next(e)
         });
 });

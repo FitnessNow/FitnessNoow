@@ -581,10 +581,11 @@ section .signup .content {
   margin-top: 100px;
 }
 .hr-edit {
-  width: 400px;
+  width: 420px;
   position: absolute;
-  left: 51%;
+  left: 52%;
   top: 30%;
+  transform: translateX(-52%);
 }
 .input-edit {
   width: 100%;
@@ -631,9 +632,14 @@ section .signup .content {
   }
   .header-edit {
     text-align: center;
+    margin-top: 165px;
   }
-  hr {
+  .hr-edit {
     width: 310px;
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    transform: translateX(-50%);
   }
 
 }
@@ -655,9 +661,12 @@ section .signup .content {
   text-align: center;
   margin-top: 100px;
 }
-hr {
+.hr-create {
   width: 427px;
-  padding-left: 8px;
+  position: absolute;
+  left: 52.5%;
+  top: 31%;
+  transform: translateX(-52.5%);
 }
 .input-create {
   width: 100%;
@@ -677,7 +686,7 @@ hr {
   width: 400px;
   position: absolute;
   left: 30%;
-  top: 50%;
+  top: 37%;
 }
 
 .create-button {
@@ -704,7 +713,7 @@ hr {
   .header-create {
     text-align: center;
   }
-  hr {
+  .hr-create {
     width: 310px;
     position: absolute;
     left: 46px;
@@ -769,20 +778,20 @@ hr {
 
 h2.transaction-header {
   text-align: center;
-  margin-top: 120px;
+  margin-top: 70px;
 }
-hr {
-  width: 310px;
+.hr-list {
+  width: 300px;
   position: absolute;
   left: 50%;
   top: 26%;
   transform: translateX(-50%);
 }
 .other-bar{
-  width: 310px;
+  width: 300px;
   position: absolute;
   left: 50%;
-  top: 40%;
+  top: 41%;
   transform: translateX(-50%);
 }
 
@@ -808,7 +817,7 @@ div.transaction-container {
   width: 300px;
   position: absolute;
   left: 50%;
-  top: 44%;
+  top: 45%;
   transform: translateX(-50%);
   margin-bottom: 50px;
   background-color: #333;
@@ -856,7 +865,10 @@ div.transaction-container .amount {
   border-radius: 10px;
   color: white;
   background-color: #333;
-  height: 60px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -868,7 +880,7 @@ h2.transaction-header {
   font-size: 17px;
 }
 
-hr {
+.hr-list {
   width: 280px;
   position: absolute;
   left: 50%;
@@ -909,7 +921,6 @@ div.transaction-container {
   position: absolute;
   left: 50%;
   top: 27%;
-  transform: translateX(-50%);
   background-color: #333;
   border-radius: 10px;
   color: white;

@@ -1,4 +1,4 @@
-<section class="container mt-4">
+{{!-- <section class="container mt-4">
     <form action="/income" method="get">
         <label> Amount
             <input type="Number" name="amount" placeholder="Filter by Amount">
@@ -23,3 +23,25 @@
     <br><br><br>
     <h3>Your balance : € {{balance}} </h3>
 </section>
+ --}}
+
+
+<h2 class="transaction-header">LIST OF INCOME</h2>
+    <hr class="hr-list">
+    <form class="search-bar" action="/income" method="get">
+        <input type="Number" name="amount" placeholder="Filter by Amount">
+        <button class="btn-filter">Search</button>
+    </form>
+<div class="your-balance">
+    <h3> Current Balance: €{{balance}} </h3>
+</div>
+    <hr class="other-bar">
+<div class="transaction-container">
+    {{#each income}}
+    <div class="date">{{dateFormat date "dddd, MMMM YYYY"}}</div>
+    <div class="category">Type: {{category}}</div>
+    <div class="amount">€ {{amount}}</div>
+    <a href="/income/{{this._id}}/edit" class="a-list">Edit</a>
+    <a href="/income/{{this._id}}/delete" class="a-list">Delete</a>
+    {{/each}}
+</div>
