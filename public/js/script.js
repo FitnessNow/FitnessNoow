@@ -18,7 +18,7 @@ function removeNavBar() {
   }
 }
 
-window.addEventListener('Loaded', removeNavBar);
+window.addEventListener('load', removeNavBar);
 window.addEventListener('resize', removeNavBar);
 
 function displayListandCreateExpense() {
