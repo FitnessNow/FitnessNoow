@@ -92,7 +92,7 @@ body {
   position: relative;
   top: 16px;
   left: 20px;
-  z-index: 1;
+  z-index: 100;
   -webkit-user-select: none;
   user-select: none;
 }
@@ -377,9 +377,10 @@ button:active
 {
  section{
   width: 100%;
-  margin-left: 10px;
-  margin-right: 10px;
-  
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
  }
 
 
@@ -536,9 +537,10 @@ button:active
 {
  section{
   width: 100%;
-  margin-left: 10px;
-  margin-right: 10px;
-  
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
  }
 
 
