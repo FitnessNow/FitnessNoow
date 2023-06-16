@@ -996,7 +996,7 @@ div.transaction-container .amount {
   text-align:center;
   text-transform: uppercase;
   color: #333; 
-  font-size: 4rem;
+  font-size: 5rem;
 }
 
 .roller{
@@ -1094,7 +1094,9 @@ div.transaction-container .amount {
 .waviy span {
   position: relative;
   display: inline-block;
-  font-size: 31px;
+  font-size: 50px;
+  font-weight: bold;
+  font-family: Helvetica;
   color: #333;
   text-transform: uppercase;
   animation: flip 2s infinite;
@@ -1107,3 +1109,27 @@ div.transaction-container .amount {
 }
 
 
+@media (max-width: 770px) {
+  .waviy {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    top: 40%;
+  }
+  .waviy span {
+    position: relative;
+    display: inline-block;
+    font-size: 31px;
+    color: #333;
+    text-transform: uppercase;
+    animation: flip 2s infinite;
+    animation-delay: calc(.2s * var(--i))
+  }
+  @keyframes flip {
+    0%,80% {
+      transform: rotateY(360deg) 
+    }
+  }
+  
+}
