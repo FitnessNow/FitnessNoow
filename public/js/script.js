@@ -1,3 +1,6 @@
+const express = require('express');
+const router = express.Router();
+
 // https://developer.mozilla.org/en-US/docs/Web/API/Window/DOMContentLoaded_event
 document.addEventListener("DOMContentLoaded", () => {
   console.log("fitness-nowt JS imported successfully!");
@@ -55,3 +58,27 @@ function displayListandCreateIncome() {
 
 displayListandCreateExpense();
 displayListandCreateIncome();
+
+const ctx = document.getElementById('myChart');
+
+const balance = calculateBalance(req.seesion.currentUser._id)
+
+
+const chartLine = new Chart(ctx,{
+  type: 'doughnut',
+  data: {
+    labels: ['Red', 'Blue', 'Green'],
+    datasets: [{
+      label: '# of Votes',
+      data: [12, 4, 3],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
+});

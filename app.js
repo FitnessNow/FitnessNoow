@@ -41,6 +41,9 @@ app.use("/", expenseRoutes);
 const balanceRoutes = require("./routes/balance.routes");
 app.use("/", balanceRoutes);
 
+const chartRoutes = require("./routes/chart.routes");
+app.use("/", chartRoutes);
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 

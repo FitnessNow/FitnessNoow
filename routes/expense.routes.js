@@ -85,14 +85,11 @@ router.get("/expense/:id/edit", isLoggedIn, (req, res, next) => {
 
     Expense.findById(id)
            .then(expenseEdit => {
+            expenseEdit = expenseEdit.toObject();
 
-            // const formattedDate = expenseEdit.date.toLocaleDateString()
-            
-            // const dateParts = formattedDate.split('/');
-            // const newFormattedDate = `${dateParts[2]}-${dateParts[1]}-${dateParts[0]}`;
-
-            // : { date: newFormattedDate, category: expenseEdit.category, amount: expenseEdit.amount }
-
+            console.log(expenseEdit);
+            expenseEdit.date = expenseEdit.date.toISOString().split('T')[0]
+            console.log(expenseEdit.date);
             res.render("expense/edit-expense", { expenseEdit, userDetails })
            })
            .catch((e) => {
@@ -113,6 +110,7 @@ router.post("/expense/:id/edit", isLoggedIn, (req, res, next) => {
 
     Expense.findByIdAndUpdate(id, updatedExp)
             .then(editExp => {
+
                 res.redirect("/expense")
             })
             .catch((e) => {
