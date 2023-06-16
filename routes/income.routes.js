@@ -9,7 +9,7 @@ const { calculateBalance } = require('../balance/balance');
 
 
 router.get("/income", isLoggedIn, (req, res, next) => {
-    
+    const userDetails = req.session.currentUser;
     let amount = req.query.amount;
     amount = Number(amount);
 
@@ -28,7 +28,7 @@ router.get("/income", isLoggedIn, (req, res, next) => {
         calculateBalance(req.session.currentUser._id)
     ])
     .then(([income, balance]) => {
-        res.render("income/income-user", { income, balance, filter });
+        res.render("income/income-user", { income, balance, filter, userDetails });
     })
     .catch((e) => {
         console.log("failed to display income", e);
@@ -38,10 +38,10 @@ router.get("/income", isLoggedIn, (req, res, next) => {
 
 
 router.get("/income/create", isLoggedIn, (req, res, next) => {
-
+    const userDetails = req.session.currentUser;
     Income.find()
             .then(createInc => {
-                res.render("income/create-income")
+                res.render("income/create-income", { userDetails })
             })
             .catch((e) => {
                 console.log("failed to display create income", e)
@@ -71,6 +71,8 @@ router.post("/income/create", isLoggedIn, (req, res, next) => {
 router.get("/income/:id/edit", isLoggedIn, (req, res, next) => {
     const { id } = req.params;
 
+    const userDetails = req.session.currentUser;
+
     const updatedInc = {
         date: req.body.date,    
         category: req.body.category,
@@ -86,7 +88,7 @@ router.get("/income/:id/edit", isLoggedIn, (req, res, next) => {
             // const newFormattedDate = `${dateParts[2]}-${dateParts[1]}-${dateParts[0]}`;
             // : {date: newFormattedDate, category: incomeEdit.category, amount: incomeEdit.amount}
 
-            res.render("income/edit-income", { incomeEdit })
+            res.render("income/edit-income", { incomeEdit, userDetails })
         })
         .catch((e) => {
             console.log("error to edit income", e)

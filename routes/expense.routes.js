@@ -10,6 +10,7 @@ const { calculateBalance } = require('../balance/balance');
 
 router.get("/expense", isLoggedIn, (req, res, next) => {
     let amount = req.query.amount;
+    const userDetails = req.session.currentUser;
     amount = Number(amount);
 
     let owner = req.session.currentUser._id;
@@ -27,7 +28,7 @@ router.get("/expense", isLoggedIn, (req, res, next) => {
         .then((balance) => {
             Expense.find(filter)
                 .then(expenses => {
-                    res.render("expense/expense-user", { expenses, balance, filter });
+                    res.render("expense/expense-user", { expenses, balance, filter, userDetails });
                 })
                 .catch((e) => {
                     console.log("failed to display expenses", e);
@@ -42,10 +43,10 @@ router.get("/expense", isLoggedIn, (req, res, next) => {
 
 
 router.get("/expense/create", isLoggedIn, (req, res, next) => {
-
+    const userDetails = req.session.currentUser;
     Expense.find() 
            .then(createExp => {
-                res.render("expense/create-expense")
+                res.render("expense/create-expense", { userDetails })
             })
           .catch((e) => {
                console.log("failed to create expense", e);
@@ -73,6 +74,8 @@ router.post("/expense/create", isLoggedIn, (req, res, next) => {
 
 router.get("/expense/:id/edit", isLoggedIn, (req, res, next) => {
     const { id } = req.params;
+    
+    const userDetails = req.session.currentUser;
 
     const updatedExp = {
         date: req.body.date,    
@@ -90,7 +93,7 @@ router.get("/expense/:id/edit", isLoggedIn, (req, res, next) => {
 
             // : { date: newFormattedDate, category: expenseEdit.category, amount: expenseEdit.amount }
 
-            res.render("expense/edit-expense", { expenseEdit })
+            res.render("expense/edit-expense", { expenseEdit, userDetails })
            })
            .catch((e) => {
             console.log("error to edit expense", e)
@@ -131,10 +134,10 @@ router.get("/expense/:id/delete", isLoggedIn, (req, res, next) => {
 
 
 router.get("/expense/:expName", (req, res, next) => {
-    
+    const userDetails = req.session.currentUser;
     Expense.findOne({category: req.params.expName})
             .then((filter) => {
-                res.render("/expense", filter)
+                res.render("/expense", filter, {userDetails})
             })
             .catch((err) => {
                 console.log("error to filter expense", e)

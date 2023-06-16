@@ -8,9 +8,10 @@ const Expense = require('../models/Expense.model');
 const { calculateBalance } = require('../balance/balance');
 
 router.get("/balance", isLoggedIn, (req, res, next) => {
+const userDetails = req.session.currentUser;
   calculateBalance(req.session.currentUser._id)
       .then((balance) => {
-          res.render("balance/balance-user", { balance });
+          res.render("balance/balance-user", { balance, userDetails});
       })
       .catch((e) => {
           console.log('Failed to calculate balance', e);
