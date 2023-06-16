@@ -45,6 +45,8 @@ module.exports = (app) => {
   app.set("view engine", "hbs");
   // AHandles access to the public folder
   app.use(express.static(path.join(__dirname, "..", "public")));
+  // AHandles access to the chart folder
+  app.use(express.static(path.join(__dirname, "..", "chart")));
 
   // Handles access to the favicon
   app.use(

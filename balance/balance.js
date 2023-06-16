@@ -17,7 +17,10 @@ function calculateBalance(userId) {
             return accl += element.amount}, 0)
         const balance = income - expense;
 
+        
+        console.log(balance);
         return balance;
+
 
     })
     .catch((e) => {
@@ -25,6 +28,7 @@ function calculateBalance(userId) {
         throw e;
     });
 }
+
 
 module.exports = {
     calculateBalance
