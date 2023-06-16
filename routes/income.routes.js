@@ -39,8 +39,14 @@ router.get("/income", isLoggedIn, (req, res, next) => {
 
 router.get("/income/create", isLoggedIn, (req, res, next) => {
     const userDetails = req.session.currentUser;
+
     Income.find()
             .then(createInc => {
+                // const categoryOption = ["Salary", "Investment", "Rental", "Gift", "Pension"];
+                // res.render("income/create-income", { userDetails, categoryOption })
+                // const currency = ["$", "Rp", "Euro"]
+                // res.render("income/create-income", { userDetails, currency })
+
                 res.render("income/create-income", { userDetails })
             })
             .catch((e) => {
