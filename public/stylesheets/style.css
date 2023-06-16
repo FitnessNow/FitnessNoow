@@ -124,7 +124,7 @@ body {
 
 #menuToggle a:hover
 {
-  color: tomato;
+  color: rgb(99, 172, 185);
 }
 
 
@@ -580,14 +580,14 @@ section .signup .content {
 
 .header-edit {
   text-align: center;
-  margin-top: 100px;
+  margin-top: 180px;
 }
 .hr-edit {
   width: 420px;
   position: absolute;
-  left: 52%;
+  left: 50%;
   top: 30%;
-  transform: translateX(-52%);
+  transform: translateX(-50%);
 }
 .input-edit {
   width: 100%;
@@ -606,8 +606,9 @@ section .signup .content {
   padding: 20px;
   width: 400px;
   position: absolute;
-  left: 30%;
+  left: 50%;
   top: 35%;
+  transform: translateX(-50%);
 }
 
 .edit-button {
@@ -627,7 +628,7 @@ section .signup .content {
   .container-edit {
     position: absolute;
     top: 30%;
-    left: 9px;
+    left: 47%;
     margin-left: 15px;
     margin-right: 15px;
     width: 300px;
@@ -661,14 +662,14 @@ section .signup .content {
 
 .header-create {
   text-align: center;
-  margin-top: 100px;
+  margin-top: 180px;
 }
 .hr-create {
   width: 427px;
   position: absolute;
-  left: 52.5%;
-  top: 31%;
-  transform: translateX(-52.5%);
+  left: 50%;
+  top: 30%;
+  transform: translateX(-50%);
 }
 .input-create {
   width: 100%;
@@ -687,8 +688,9 @@ section .signup .content {
   padding: 20px;
   width: 400px;
   position: absolute;
-  left: 30%;
-  top: 37%;
+  left: 50%;
+  top: 35%;
+  transform: translateX(-50%);
 }
 
 .create-button {
@@ -706,20 +708,21 @@ section .signup .content {
 @media (max-width: 770px){
   .container-create {
     position: absolute;
-    top: 25%;
-    left: 23px;
+    top: 30%;
+    left: 47%;
     margin-left: 15px;
     margin-right: 15px;
     width: 300px;
   }
   .header-create {
     text-align: center;
+    margin-top: 165px;
   }
   .hr-create {
-    width: 315px;
+    width: 310px;
     position: absolute;
-    left: 53%;
-    top: 20%;
+    left: 50%;
+    top: 25%;
     transform: translateX(-50%);
   }
 
@@ -766,8 +769,8 @@ section .signup .content {
 @media (max-width: 770px) {
   .container-balance {
     position: absolute;
-    left: 65%;
-    transform: translateX(-65%); 
+    left: 50%;
+    transform: translateX(-50%); 
   }
   
   .hr-balance {
@@ -783,20 +786,20 @@ section .signup .content {
 
 h2.transaction-header {
   text-align: center;
-  margin-top: 70px;
+  margin-top: 130px;
 }
 .hr-list {
   width: 300px;
   position: absolute;
   left: 50%;
-  top: 26%;
+  top: 23%;
   transform: translateX(-50%);
 }
 .other-bar{
   width: 300px;
   position: absolute;
   left: 50%;
-  top: 41%;
+  top: 33.5%;
   transform: translateX(-50%);
 }
 
@@ -805,13 +808,27 @@ h2.transaction-header {
   left: 7%;
   top: 12%;
   transform: translateX(-7%);
-
 }
+ 
+.search-bar .inp-search {
+  width: 200px;
+  height: 30px;
+}
+
 .btn-filter {
   color: whitesmoke;
   background: #333;
   border: 8px;
   border-radius: 4px;
+  width: 80px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.btn-filter:hover {
+  background: rgb(99, 172, 185);
+  color: whitesmoke;
+  cursor: pointer;
 }
     
 div.transaction-container {
@@ -822,7 +839,7 @@ div.transaction-container {
   width: 300px;
   position: absolute;
   left: 50%;
-  top: 45%;
+  top: 38%;
   transform: translateX(-50%);
   margin-bottom: 50px;
   background-color: #333;
@@ -864,7 +881,7 @@ div.transaction-container .amount {
 .your-balance {
   position: absolute;
   left: 50%;
-  top: 30%;
+  top: 26%;
   transform: translateX(-50%);
   border: 3px solid #333 ;
   border-radius: 10px;
@@ -903,11 +920,15 @@ h2.transaction-header {
 .search-bar {
   position: absolute;
   left: 50%;
-  top: 13%;
+  top: 13.5%;
   transform: translateX(-50%);
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.search-bar .inp-search {
+  width: 180px;
+  height: 20px;
 }
 
 .btn-filter {
@@ -915,6 +936,8 @@ h2.transaction-header {
   background: #333;
   border: 8px;
   border-radius: 4px;
+  width: 70px;
+  height: 20px;
 }
     
 div.transaction-container {
@@ -976,7 +999,7 @@ div.transaction-container .amount {
   color: white;
   background-color: #333;
   height: 40px;
-  margin-top: -100px;
+  margin-top: -72px;
 }
 }
 

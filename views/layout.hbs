@@ -15,7 +15,6 @@
       <div id="logo-div">
          <a style="color: white; padding: 0 100px; font-weigth: bold; font-size: 30px" href="/">$ Budbudgeting</a>
       </div>
-      <a href="/" class="homebtn">HOME</a>
       <div class="dropdown">
         <button class="dropbtn" href="/expense">EXPENSES
           <i class="fa fa-caret-down"></i>
@@ -36,9 +35,13 @@
       </div>
       <a href="/balance">BALANCE</a>
       <div class="access">
+
+      {{#if userDetails}}
+        <a href="/auth/logout">Logout</a>
+      {{else}}
         <a href="/auth/signup">Sign Up</a>
         <a href="/auth/login">Sign In</a>
-        <a href="/auth/logout">Logout</a>
+      {{/if}}  
       </div>
     </div>
     
@@ -64,9 +67,13 @@
         <li><a href="/income/create">Create Expense</a></li>
       </ul>
       <a href="/balance"><li>Balance</li></a>
-      <a href="/auth/signup">Sign Up</a>
-      <a href="/auth/login">Login</a>
-      <a href="/auth/logout">Logout</a>
+
+      {{#if userDetails}}
+        <a href="/auth/logout">Logout</a>
+      {{else}}
+        <a href="/auth/signup">Sign Up</a>
+        <a href="/auth/login">Sign In</a>
+      {{/if}}  
     </ul>
 </div>
   
