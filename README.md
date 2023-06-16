@@ -4,6 +4,26 @@
 
 Budbudgeting is a comprehensive financial management platform designed to empower individuals in effectively tracking and controlling their finances. Our user-friendly platform allows users to effortlessly add their income and expenses, providing a real-time balance based on the information inputted. With Budbudgeting, users can gain valuable insights into their spending patterns. Our aim is to simplify personal finance management, helping individuals achieve greater financial stability and control. Experience Budbudgeting today and take charge of your financial future.
 
+## Application Link
+
+https://budbudgeting.adaptable.app/
+
+## Our Visuals
+
+![Home-Page](./public/images/home-page-not-login.png)
+![Home-Page Logged In](./public/images/home-page-login.png)
+![List of Expenses](./public/images/list-of-expenses.png)
+![List of Income](./public/images/list-of-income.png)
+![Edit](./public/images/edit-login.png)
+![Create](./public/images/create-login.png)
+![Balance](./public/images/balance-login.png)
+
+## How to run the application
+
+First Step: Install dependencies (ex: npm install)
+
+Second Step: Run the following code on the terminal: ----- > npm run dev
+
 ### Step 1: Logging in
 
 Visit the Budbudgeting website and click on the "Log In" button.
