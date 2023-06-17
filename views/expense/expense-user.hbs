@@ -1,14 +1,18 @@
-
 <h2 class="transaction-header">LIST OF EXPENSES</h2>
     <hr class="hr-list">
     <form class="search-bar" action="/expense" method="get">
         <input class="inp-search" type="Number" name="amount" placeholder="Filter by Amount">
+        <input class="inp-search" type="Number" name="maxAmount" placeholder="Filter by Max Amount">
+        <input class="inp-search" type="text" name="category" placeholder="Filter by Category">
+        <input class="inp-search" type="date" name="date" placeholder="Filter by Date">
         <button class="btn-filter">Search</button>
     </form>
+
+
 <div class="your-balance">
     <h3> Current Balance: €{{balance}} </h3>
 </div>
-    <hr class="other-bar">
+<hr class="other-bar">
 <div class="transaction-container">
     {{#each expenses}}
     <div class="date">{{dateFormat date "dddd, MMMM YYYY"}}</div>
@@ -17,4 +21,4 @@
     <a href="/expense/{{this._id}}/edit" class="a-list">Edit</a>
     <a href="/expense/{{this._id}}/delete" class="a-list">Delete</a>
     {{/each}}
-</div> 
+</div>

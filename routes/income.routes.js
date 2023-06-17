@@ -9,19 +9,46 @@ const { calculateBalance } = require('../balance/balance');
 
 
 router.get("/income", isLoggedIn, (req, res, next) => {
-    const userDetails = req.session.currentUser;
+    // const userDetails = req.session.currentUser;
+    // let amount = req.query.amount;
+    // amount = Number(amount);
+
+    // let owner = req.session.currentUser._id;
+    
+    // let filter = {}
+
+    // if(amount) {
+    //     filter = {$and: [{amount: amount}, {owner: owner}]}
+    // } else if(owner) {
+    //     filter = {owner: owner}
+    // }
+
     let amount = req.query.amount;
+    let maxAmount = req.query.maxAmount;
+    let category = req.query.category;
+    let date = req.query.date
+    const userDetails = req.session.currentUser;
     amount = Number(amount);
+    maxAmount = Number(maxAmount);
 
     let owner = req.session.currentUser._id;
     
     let filter = {}
 
-    if(amount) {
+    if (amount && maxAmount) {
+        filter = {$and: [{amount: {$gte: amount, $lte: maxAmount}}, {owner: owner}]}
+    } else if (amount) {
         filter = {$and: [{amount: amount}, {owner: owner}]}
-    } else if(owner) {
+    } else if (maxAmount) {
+        filter = {$and: [{amount: {$lte: maxAmount}}, {owner: owner}]}
+    } else if (category) {
+        filter = {$and: [{category: category}, {owner: owner}]}
+    } else if(date) {
+        filter = {$and: [{date: date}, {owner: owner}]}
+    } else if (owner) {
         filter = {owner: owner}
     }
+
 
     Promise.all([
         Income.find(filter),

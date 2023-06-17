@@ -810,11 +810,14 @@ h2.transaction-header {
   left: 7%;
   top: 12%;
   transform: translateX(-7%);
+  display: flex;
+  flex-direction: column;
 }
  
 .search-bar .inp-search {
   width: 200px;
   height: 30px;
+  margin-bottom: 10px;
 }
 
 .btn-filter {
@@ -831,8 +834,9 @@ h2.transaction-header {
   background: rgb(99, 172, 185);
   color: whitesmoke;
   cursor: pointer;
+  font-weight: bold;
 }
-    
+
 div.transaction-container {
   display: flex;
   flex-direction: column;
@@ -843,24 +847,26 @@ div.transaction-container {
   left: 50%;
   top: 38%;
   transform: translateX(-50%);
-  margin-bottom: 50px;
+  margin-bottom: 200px;
   background-color: #333;
   border-radius: 10px;
   color: white;
 }
+
 
 div.transaction-container .date, 
 div.transaction-container .category,
 div.transaction-container .amount {
   width: 300px;
   margin-top: 10px;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 div.transaction-container .date {
   background-color: rgb(187, 184, 184);
   height: 30px;
-
 }
 
 div.transaction-container .category {
@@ -878,6 +884,10 @@ div.transaction-container .amount {
   border-radius: 5px;
   text-decoration: none;
   margin-bottom: 8px;
+}
+
+.a-list:hover {
+  font-weight: bold;
 }
 
 .your-balance {
@@ -915,8 +925,8 @@ h2.transaction-header {
   width: 280px;
   position: absolute;
   left: 50%;
-  top: 24%;
   transform: translateX(-50%);
+  top: 31%;
 }
 
 .search-bar {
@@ -931,6 +941,7 @@ h2.transaction-header {
 .search-bar .inp-search {
   width: 180px;
   height: 20px;
+  text-align: center;
 }
 
 .btn-filter {
@@ -950,7 +961,7 @@ div.transaction-container {
   width: 300px;
   position: absolute;
   left: 50%;
-  top: 27%;
+  top: 40%;
   background-color: #333;
   border-radius: 10px;
   color: white;
@@ -988,6 +999,10 @@ div.transaction-container .amount {
   margin-bottom: 10px;
 }
 
+.a-list:hover {
+  font-weight: bold;
+}
+
 .your-balance {
   position: absolute;
   left: 50%;
@@ -1001,7 +1016,7 @@ div.transaction-container .amount {
   color: white;
   background-color: #333;
   height: 40px;
-  margin-top: -72px;
+  top: 33%;
 }
 }
 
