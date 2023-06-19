@@ -2,7 +2,7 @@
 const Income = require('../models/Income.model');
 const Expense = require('../models/Expense.model');
 
-function calculateBalance(userId, date) {
+function calculateBalance(userId) {
     
     console.log(userId);
 
