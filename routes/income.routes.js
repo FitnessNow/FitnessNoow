@@ -9,20 +9,6 @@ const { calculateBalance } = require('../balance/balance');
 
 
 router.get("/income", isLoggedIn, (req, res, next) => {
-    // const userDetails = req.session.currentUser;
-    // let amount = req.query.amount;
-    // amount = Number(amount);
-
-    // let owner = req.session.currentUser._id;
-    
-    // let filter = {}
-
-    // if(amount) {
-    //     filter = {$and: [{amount: amount}, {owner: owner}]}
-    // } else if(owner) {
-    //     filter = {owner: owner}
-    // }
-
     let amount = req.query.amount;
     let maxAmount = req.query.maxAmount;
     let category = req.query.category;
