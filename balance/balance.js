@@ -2,9 +2,10 @@
 const Income = require('../models/Income.model');
 const Expense = require('../models/Expense.model');
 
-function calculateBalance(userId) {
+function calculateBalance(userId, date) {
     
     console.log(userId);
+
     return Promise.all([
         Income.find({owner: userId}),
         Expense.find({owner: userId}),
