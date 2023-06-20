@@ -15,7 +15,7 @@
 <hr class="other-bar">
 <div class="transaction-container">
     {{#each expenses}}
-    <div class="date">{{dateFormat date "dddd, MMMM YYYY"}}</div>
+    <div class="date">{{dateFormat date "DD, MMMM YYYY"}}</div>
     <div class="category">Type: {{category}}</div>
     <div class="amount">€ {{amount}}</div>
     <a href="/expense/{{this._id}}/edit" class="a-list">Edit</a>

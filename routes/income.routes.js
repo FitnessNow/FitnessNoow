@@ -102,7 +102,7 @@ router.get("/income/:id/edit", isLoggedIn, (req, res, next) => {
         .then(incomeEdit => {
             incomeEdit = incomeEdit.toObject();
             incomeEdit.date = incomeEdit.date.toISOString().split('T')[0]
-        
+              
             res.render("income/edit-income", { incomeEdit, userDetails })
         })
         .catch((e) => {
