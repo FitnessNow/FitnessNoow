@@ -5,7 +5,7 @@ const isLoggedOut = require('../middleware/isLoggedOut');
 
 const Income = require('../models/Income.model');
 const Expense = require('../models/Expense.model');
-const { calculateBalance } = require('../balance/balance');
+const { calculateBalance, balanceUntilDate } = require('../balance/balance');
 
 
 router.get("/income", isLoggedIn, (req, res, next) => {
@@ -31,6 +31,7 @@ router.get("/income", isLoggedIn, (req, res, next) => {
         filter = {$and: [{category: category}, {owner: owner}]}
     } else if(date) {
         filter = {$and: [{date: date}, {owner: owner}]}
+        
     } else if (owner) {
         filter = {owner: owner}
     }
@@ -38,16 +39,32 @@ router.get("/income", isLoggedIn, (req, res, next) => {
 
     Promise.all([
         Income.find(filter),
-        calculateBalance(req.session.currentUser._id)
+        calculateBalance(req.session.currentUser._id),
+        date ? balanceUntilDate(date, owner) : null
     ])
-    .then(([income, balance]) => {
-        res.render("income/income-user", { income, balance, filter, userDetails });
+    .then(([income, balance, balanceUntil]) => {
+    //    console.log(`balance until ${date} : ®`, balanceUntil)
+        res.render("income/income-user", { income, balance, filter, userDetails, balanceUntil });
     })
     .catch((e) => {
         console.log("failed to display income", e);
         next(e);
     });
 });
+
+
+// router.get("/specific-balance", isLoggedIn, (req, res, next) => {
+    
+//     .then((balance) => {
+
+//     })
+//     .catch( e => {
+//         console.log(e, "something went off")
+//         next();
+//     })
+// })
+
+
 
 
 router.get("/income/create", isLoggedIn, (req, res, next) => {

@@ -19,4 +19,7 @@ const userDetails = req.session.currentUser;
       });
 });
 
+
+
+
 module.exports = router;

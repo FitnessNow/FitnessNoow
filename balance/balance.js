@@ -17,7 +17,6 @@ function calculateBalance(userId) {
         const expense = expenseTotal.reduce((accl, element) => {
             return accl += element.amount}, 0)
         const balance = income - expense;
-
         
         console.log(balance);
         return balance;
@@ -30,7 +29,26 @@ function calculateBalance(userId) {
     });
 }
 
+async function balanceUntilDate(date, userId) {
+
+    try {
+        const incomes = await Income.find({owner: userId, date: {$lte: date} })
+        let total = 0
+        console.log("INCOMES>>>>",incomes)
+        incomes.forEach((current)=> {
+            total += current.amount
+        })
+        return total
+
+    } catch (error) {
+        console.log(error);
+        throw `Error getting balance until ${date}`
+    }
+}
+
+
 
 module.exports = {
-    calculateBalance
+    calculateBalance,
+    balanceUntilDate
 };
