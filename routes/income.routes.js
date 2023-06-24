@@ -43,7 +43,6 @@ router.get("/income", isLoggedIn, (req, res, next) => {
         date ? balanceUntilDate(date, owner) : null
     ])
     .then(([income, balance, balanceUntil]) => {
-    //    console.log(`balance until ${date} : ®`, balanceUntil)
         res.render("income/income-user", { income, balance, filter, userDetails, balanceUntil });
     })
     .catch((e) => {
@@ -51,20 +50,6 @@ router.get("/income", isLoggedIn, (req, res, next) => {
         next(e);
     });
 });
-
-
-// router.get("/specific-balance", isLoggedIn, (req, res, next) => {
-    
-//     .then((balance) => {
-
-//     })
-//     .catch( e => {
-//         console.log(e, "something went off")
-//         next();
-//     })
-// })
-
-
 
 
 router.get("/income/create", isLoggedIn, (req, res, next) => {

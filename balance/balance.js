@@ -33,12 +33,21 @@ async function balanceUntilDate(date, userId) {
 
     try {
         const incomes = await Income.find({owner: userId, date: {$lte: date} })
-        let total = 0
-        console.log("INCOMES>>>>",incomes)
+        const expense = await Expense.find({owner: userId, date: {$lte: date} })
+        let totalIncome = 0 
         incomes.forEach((current)=> {
-            total += current.amount
+            totalIncome += current.amount
         })
-        return total
+
+        let totalExpense = 0
+        console.log("INCOMES>>>>",expense)
+        expense.forEach((current)=> {
+            totalExpense += current.amount
+        })
+
+        // console.log(totalExpense, "+", totalIncome, "give me the number");
+        const totalExpInc = totalIncome - totalExpense
+        return totalExpInc
 
     } catch (error) {
         console.log(error);

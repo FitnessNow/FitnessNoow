@@ -5,7 +5,7 @@ const isLoggedOut = require('../middleware/isLoggedOut');
 
 const Income = require('../models/Income.model');
 const Expense = require('../models/Expense.model');
-const { calculateBalance } = require('../balance/balance');
+const { calculateBalance, balanceUntilDate } = require('../balance/balance');
 
 
 router.get("/expense", isLoggedIn, (req, res, next) => {
@@ -36,21 +36,19 @@ router.get("/expense", isLoggedIn, (req, res, next) => {
         filter = {owner: owner}
     }
 
-    calculateBalance(req.session.currentUser._id)
-        .then((balance) => {
-            Expense.find(filter)
-                .then(expenses => {
-                    res.render("expense/expense-user", { expenses, balance, filter, userDetails });
-                })
-                .catch((e) => {
-                    console.log("failed to display expenses", e);
-                    next(e);
-                });
-        })
-        .catch((e) => {
-            console.log('Failed to calculate balance', e);
-            next(e);
-        });
+
+    Promise.all([
+        Expense.find(filter),
+        calculateBalance(req.session.currentUser._id),
+        date ? balanceUntilDate(date, owner) : null
+    ])
+    .then(([expenses, balance, balanceUntil]) => {
+        res.render("expense/expense-user", { expenses, balance, filter, userDetails, balanceUntil });
+    })
+    .catch((e) => {
+        console.log("failed to display expenses", e);
+        next(e);
+    });
 });
 
 
