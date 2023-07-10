@@ -10,17 +10,11 @@ const incomeSchema = new Schema(
     category: {
       type: String,
       required: true,
-      // enum: ["Salary", "Investment", "Rental", "Gift", "Pension"],
-      // required: true
     },
     amount: {
       type: Number,
       required: true
     },
-    // currency: {
-    //   type: [],
-    //   required: true
-    // },
     owner: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",

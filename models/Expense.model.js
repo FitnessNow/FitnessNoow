@@ -9,18 +9,12 @@ const expenseSchema = new Schema(
     },
     category: {
       type: String,
-      // required: [true, "Please use one of the following: Home & Utility, Transport, Medical, Child Care, Education, Entertainment, Dine Out"],
-      // enum: ["Home & Utility", "Transport", "Medical", "Child Care", "Education", "Entertainment", "Dine Out"],
       required: true,
     },
     amount: {
       type: Number,
       required: true,
     },
-    // currency: {
-    //   type: [],
-    //   required: true
-    // },
     owner: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
