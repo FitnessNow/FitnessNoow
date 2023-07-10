@@ -21,8 +21,7 @@ const incomeSchema = new Schema(
       required: true
     }
   },
-  {
-    // this second object adds extra properties: `createdAt` and `updatedAt`    
+  {    
     timestamps: true
   },
 );
