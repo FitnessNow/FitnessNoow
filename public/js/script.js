@@ -9,11 +9,11 @@ function removeNavBar() {
   const hamburgerElement = document.querySelector('.menuToggle');
   const logoElement = document.querySelector('.logo-text');
 
-  if(window.innerWidth <= 770) {
+  if(window.innerWidth <= 800) {
     navBarElement.style.display = 'none';
     hamburgerElement.style.display = 'flex';
     logoElement.removeAttribute("hidden");
-  } else if(window.innerWidth >= 771) {
+  } else if(window.innerWidth >= 800) {
     navBarElement.style.display = 'flex';
     hamburgerElement.removeAttribute("hidden");
   }
