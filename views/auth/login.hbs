@@ -1,43 +1,17 @@
-  <section>
-    <form id="login-form" method="POST" action="/auth/login">
-      <div class="signin">
-  
-        <div class="content">
-  
-          <h2>Sign In</h2>
-  
-          <div class="form">
-  
-            <div class="inputBox">
-  
-              <input type="text" name="username" placeholder="Username" required>
-  
-            </div>
-  
-            <div class="inputBox">
-  
-              <input type="password" name="password" placeholder="Password" required> 
-  
-            </div>
-  
-            <div class="links"> <a href="/auth/signup">Signup</a>
-  
-            </div>
-            <div>
-            {{#if errorMessage}}
-              <p class="error" style="color: white;">{{errorMessage}}</p>
-            {{/if}}
-            </div>
-            <div class="inputBox">
-  
-              <button type="submit"> Login</button>
-  
-            </div>
-  
-          </div>
-  
-        </div>
-      </div>
-    </form>
-  </section> <!-- partial -->
-  
+<form id="login-form" method="POST" action="/auth/login">
+  <div class="form-container">
+    <h2>Sign In</h2>
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <p>Please, signup if you don't have any account</p>
+    <a href="/auth/signup">Sign Up</a>
+    <div>
+    </div>
+    <div class="inputBox">
+      <button type="submit">Login</button>
+    </div>
+    {{#if errorMessage}}
+    <p class="error" style="color: white;">{{errorMessage}}</p>
+    {{/if}}
+  </div>
+</form>

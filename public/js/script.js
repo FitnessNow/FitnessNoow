@@ -1,58 +1,58 @@
-
-// https://developer.mozilla.org/en-US/docs/Web/API/Window/DOMContentLoaded_event
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("fitness-nowt JS imported successfully!");
+  console.log("budbudgeting JS imported successfully!");
 });
 
-function removeNavBar() {
-  const navBarElement = document.querySelector('.navbar');
-  const hamburgerElement = document.querySelector('.menuToggle');
-  const logoElement = document.querySelector('.logo-text');
+const mainUl = document.querySelector("#main-ul");
+const hamburgerIconElement = document.querySelector(".hamburger-icon");
+const searchBarElement = document.querySelector(".search-bar");
+const dateInputElement = document.querySelector("#inp-search-date");
+const specificBalanceElement = document.querySelector(".specific-balance-container");
 
-  if(window.innerWidth <= 800) {
-    navBarElement.style.display = 'none';
-    hamburgerElement.style.display = 'flex';
-    logoElement.removeAttribute("hidden");
-  } else if(window.innerWidth >= 800) {
-    navBarElement.style.display = 'flex';
-    hamburgerElement.removeAttribute("hidden");
-  }
-}
 
-window.addEventListener('load', removeNavBar);
-window.addEventListener('resize', removeNavBar);
 
-function displayListandCreateExpense() {
-  const expenseParent = document.querySelector('.expense');
-  const expenseChild = document.querySelector('.child-expense');
-  let isChildExpenseVisible = false;
 
-  expenseParent.addEventListener('click', () => {
-      if (isChildExpenseVisible) {
-        expenseChild.hidden = true;
-        isChildExpenseVisible = false;
-      } else {
-        expenseChild.hidden = false;
-        isChildExpenseVisible = true;
-      }
+
+const showTheSearchBar = () => {
+  if(searchBarElement.style.display === "none" || searchBarElement.style.display === "") {
+    searchBarElement.style.display = "flex";
+  } else {searchBarElement.style.display = "none";}
+};
+
+const showTheSpecificBalance = (e) => {
+  e.preventDefault() 
+
+  if(dateInputElement.value) {
+    specificBalanceElement.style.display = "flex";
+    console.log("success")
+  } else { specificBalanceElement.style.display = "none";}
+};
+
+
+
+const handleHamburgerClick = () => {
+  if (window.innerWidth < 700) {
+    if (mainUl.style.display === "block") {
+      mainUl.style.display = "";
+    } else {
+      mainUl.style.display = "block";
     }
-)};
+  }
+};
 
-function displayListandCreateIncome() {
-    const incomeParent = document.querySelector('.income');
-    const incomeChild = document.querySelector('.child-income');
-    let isChildIncomeVisible = false;
-  
-    incomeParent.addEventListener('click', () => {
-        if (isChildIncomeVisible) {
-          incomeChild.hidden = true;
-          isChildIncomeVisible = false;
-        } else {
-          incomeChild.hidden = false;
-          isChildIncomeVisible = true;
-        }
-      }
-)};
+hamburgerIconElement.addEventListener("click", handleHamburgerClick);
 
-displayListandCreateExpense();
-displayListandCreateIncome();
+// Add event listener to all menu items to hide the mainUl when clicked
+const menuItems = document.querySelectorAll("#main-ul li a ul");
+menuItems.forEach((menuItem) => {
+  menuItem.addEventListener("click", () => {
+    if (window.innerWidth < 700) {
+      mainUl.style.display = ""; // Hide the mainUl
+    }
+  });
+});
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth >= 700) {
+    mainUl.style.display = ""; // Restores the default display property
+  }
+});

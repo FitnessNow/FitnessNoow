@@ -1,27 +1,33 @@
-<h2 class="transaction-header">LIST OF INCOME</h2>
-    <hr class="hr-list">
-    <form class="search-bar" action="/income" method="get">
-        <input class="inp-search" type="Number" name="amount" placeholder="Filter by Amount">
-        <input class="inp-search" type="Number" name="maxAmount" placeholder="Filter by Max Amount">
-        <input class="inp-search" type="text" name="category" placeholder="Filter by Category">
-        <input class="inp-search" type="date" name="date" placeholder="Filter by Date">
-        <button class="btn-filter">Search</button>
-    </form>
-<div class="your-balance">
-    <h3> Current Balance: €{{balance}} </h3>
+<div class="transaction-header">
+    <h2>My Income</h2>
+     <h3> Current Balance: €{{balance}} </h3>
+     <button onclick="showTheSearchBar()">Click to search</button>
 </div>
-    <hr class="other-bar">
+
+<form class="search-bar" action="/income" method="get">
+    <input class="inp-search" type="Number" name="amount" placeholder="Filter by Amount">
+    <input class="inp-search" type="Number" name="maxAmount" placeholder="Filter by Max Amount">
+    <input class="inp-search" type="text" name="category" placeholder="Filter by Category">
+    <input class="inp-search" type="date" name="date" placeholder="Filter by Date">
+    <button class="btn-filter">Search</button>
+</form>
+
+<div class="specific-balance-container">
+    <p class="specific-balance">Your balance on this date € {{balanceUntil}}</p>
+</div>
+
 <div class="transaction-container">
-    {{#each income}}
-    <div class="date">{{dateFormat date "DD, MMMM YYYY"}}</div>
-    <div class="category">Type: {{category}}</div>
-    <div class="amount">€ {{amount}}</div>
-    <a href="/income/{{this._id}}/edit" class="a-list">Edit</a>
-    <a href="/income/{{this._id}}/delete" class="a-list">Delete</a>
-    {{/each}}
-    <div class="amount">
-        <p class="specific-balance">Your balance on this date <br /> 
-        € {{balanceUntil}}</p>
+    <div class="sub-transaction-container">    
+        {{#each income}}
+        <div class="sub-sub-transaction-container">
+            <p class="date">{{dateFormat date "DD, MMMM YYYY"}}</p>
+            <label>Category</label>
+            <p class="category">{{category}}</p>
+            <p class="amount">€ {{amount}}</p>
+            <a href="/income/{{this._id}}/edit" class="a-list">Edit</a>
+            <a href="/income/{{this._id}}/delete" class="a-list">Delete</a>
+        </div>
+        {{/each}}
     </div>
 </div>
 

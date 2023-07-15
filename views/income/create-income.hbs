@@ -1,25 +1,19 @@
-
-<h3 class="header-create">Add Income</h3>
-<hr class="hr-create">
 <div class="container-create">
+  <h3 class="header-create">Add Income</h3>
   <form class="create-form" action="/income/create" method="post">
     <input class="input-create" type="date" id="fname" name="date" required>
-
     <input class="input-create" type="text" id="lname" name="category" placeholder="Category" required>
     {{!-- <select class="input-create" id="lname" name="category" required>
       {{#each categoryOption}}
         <option value="{{this}}">{{this}}</option>
       {{/each}}
     </select> --}}
-
     <input class="input-create" type="number" id="lname" name="amount" placeholder="Amount" required>
-
     {{!-- <select class="input-create" id="lname" name="currency" required>
       {{#each currency}}
         <option value="{{this}}">{{this}}</option>
       {{/each}}
     </select> --}}
-    
     <button class="create-button" type="submit">CREATE</button>
   </form>
 </div>

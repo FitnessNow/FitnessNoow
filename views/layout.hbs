@@ -4,85 +4,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>{{appTitle}}</title>
-    <link rel="icon" type="image/x-icon" href="./images/5a36cb0e732268.2647329615135403664716.png"/>
+    <link rel="icon" type="image/x-icon" href="./images/icon-logo.png"/>
     
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
 
   <body>
-    <div class="navbar">
-      <div id="logo-div">
-         <a style="color: white; padding: 0 100px; font-weigth: bold; font-size: 30px" href="/">$ Budbudgeting</a>
-      </div>
-      <div class="dropdown">
-        <button class="dropbtn" href="/expense">EXPENSES
-          <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content">
-          <a href="/expense">LIST OF EXPENSE</a>
-          <a href="/expense/create">CREATE EXPENSE</a>
-        </div>
-      </div>
-      <div class="dropdown">
-        <button class="dropbtn">INCOME
-          <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content">
-          <a href="/income">LIST OF INCOME</a>
-          <a href="/income/create">CREATE INCOME</a>
-        </div>
-      </div>
-      <a href="/balance">BALANCE</a>
-      <div class="access">
-
-      {{#if userDetails}}
-        <a href="/auth/logout">Logout</a>
-      {{else}}
-        <a href="/auth/signup">Sign Up</a>
-        <a href="/auth/login">Sign In</a>
-      {{/if}}  
-      </div>
+    <div class="hamburger-container">
+      <button class="hamburger-icon">
+        $BUD
+      </button>
     </div>
-    
-<div id="menuToggle" hidden>
-    <input type="checkbox" />
-    <span></span>
-    <span></span>
-    <span></span>
-
-    
-    <label id="logo"> $ BUDBUDGETTING</label>
-
-    <ul id="menu">
-      <a href="/"><li>Home</li></a>
-      <a href="#" class="expense"><li>Expense</li></a>
-      <ul class="child-expense" hidden>
-        <li><a href="/expense">List Of Expense</a></li>
-        <li><a href="/expense/create">Create Expense</a></li>
-      </ul>
-      <a href="#" class="income"><li>Income</li></a>
-      <ul class="child-income" hidden>
-        <li><a href="/income">List Of Income</a></li>
-        <li><a href="/income/create">Create Income</a></li>
-      </ul>
-      <a href="/balance"><li>Balance</li></a>
-
-      {{#if userDetails}}
-        <a href="/auth/logout">Logout</a>
-      {{else}}
-        <a href="/auth/signup">Sign Up</a>
-        <a href="/auth/login">Sign In</a>
-      {{/if}}  
+    <ul id="main-ul">
+      <li class="logo"><a href="/">$ BUDBUDGETING</a></li>
+      <li class="expense">
+        <a href="#">EXPENSES</a>
+        <ul class="dropdown">
+          <li><a href="/expense">List of Expenses</a></li>
+          <li><a href="/expense/create">Input New Expense</a></li>
+        </ul>
+      </li>
+      <li class="income">
+        <a href="#">INCOME</a>
+        <ul class="dropdown">
+          <li><a href="/income">List of Income</a></li>
+          <li><a href="/income/create">Input New Income</a></li>
+        </ul>
+      </li>
+      <li><a href="/balance">BALANCE</a></li>
+      <li>
+        <a href="#">My Account</a>
+        <ul class="dropdown">
+        {{#if userDetails}}
+        <li><a href="/auth/logout">Logout</a></li>  
+        {{else}}
+        <li><a href="/auth/signup">Sign Up</a></li>
+        <li><a href="/auth/login">Sign In</a></li>
+        {{/if}}  
+        </ul>
+      </li>
     </ul>
-</div>
   
     {{{body}}}
 
     
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="/js/script.js"></script> 
-    <script src="/chart.js"></script> 
+    <script src="/js/script.js"></script>
+    {{!-- <script src="/js/chart.js"></script> --}}
+    <script src="/chart.js"></script>
 
   </body>
 
 </html>
+
