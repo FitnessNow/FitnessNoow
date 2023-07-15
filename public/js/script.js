@@ -8,10 +8,6 @@ const searchBarElement = document.querySelector(".search-bar");
 const dateInputElement = document.querySelector("#inp-search-date");
 const specificBalanceElement = document.querySelector(".specific-balance-container");
 
-
-
-
-
 const showTheSearchBar = () => {
   if(searchBarElement.style.display === "none" || searchBarElement.style.display === "") {
     searchBarElement.style.display = "flex";
