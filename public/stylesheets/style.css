@@ -224,7 +224,7 @@ ul li:hover ul.dropdown {
   flex-wrap: wrap;
   flex-direction: column;
   margin: 0.5em 2em 0 2em;
-  height: 25vh;
+  height: 50vh;
   overflow-y: scroll;
   text-align: center;
   border-radius: 5px;
